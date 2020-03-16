@@ -1,0 +1,238 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "居易",
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/index/community",
+			"style": {
+				"navigationBarTitleText": "小区",
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/index/activity",
+			"style": {
+				"navigationBarTitleText": "活动",
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/index/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/question/mine/my-question",
+			"style": {
+				"navigationBarTitleText": "我的问答"
+			}
+		},
+		{
+			"path": "pages/question/quiz",
+			"style": {
+				"navigationBarTitleText": "我要提问"
+			}
+		},
+		{
+			"path": "pages/question/question-info",
+			"style": {
+				"navigationBarTitleText": "问题信息"
+			}
+		},
+		{
+			"path": "pages/question/quiz-edit",
+			"style": {
+				"navigationBarTitleText": "编辑问题"
+			}
+		},
+		{
+			"path": "pages/lost/mine/my-lost",
+			"style": {
+				"navigationBarTitleText": "我的失物信息"
+			}
+		},
+		{
+			"path": "pages/lost/publish-lost",
+			"style": {
+				"navigationBarTitleText": "发布信息"
+			}
+		},
+		{
+			"path": "pages/lost/lost-info",
+			"style": {
+				"navigationBarTitleText": "失物详情"
+			}
+		},
+		{
+			"path": "pages/lost/edit-lost",
+			"style": {
+				"navigationBarTitleText": "编辑失物信息"
+			}
+		},
+		{
+			"path": "pages/common/bind-community",
+			"style": {
+				"navigationBarTitleText": "绑定小区"
+			}
+		},
+		{
+			"path": "pages/community/my-community",
+			"style": {
+				"navigationBarTitleText": "我的小区"
+			}
+		},
+		{
+			"path": "pages/community/community-info",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/community/community-phone",
+			"style": {
+				"navigationBarTitleText": "小区服务电话"
+			}
+		},
+		{
+			"path": "pages/community/add-new-phone",
+			"style": {
+				"navigationBarTitleText": "添加电话"
+			}
+		},
+		{
+			"path": "pages/mine/person-info",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+		{
+			"path": "pages/house/mine/my-house",
+			"style": {
+				"navigationBarTitleText": "我发布的"
+			}
+		},
+		{
+			"path": "pages/house/mine/publish-house",
+			"style": {
+				"navigationBarTitleText": "房屋信息"
+			}
+		},
+		{
+			"path": "pages/house/mine/publish-car-house",
+			"style": {
+				"navigationBarTitleText": "车位信息"
+			}
+		},
+		{
+			"path": "pages/house/mine/publish-store-house",
+			"style": {
+				"navigationBarTitleText": "储藏室信息"
+			}
+		},
+		{
+			"path": "pages/house/house-info",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/house/mine/publish-house-info",
+			"style": {
+				"navigationBarTitleText": "更多信息"
+			}
+		},
+		{
+			"path": "pages/mine/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/mine/feedback",
+			"style": {
+				"navigationBarTitleText": "意见反馈"
+			}
+		},
+		{
+			"path":"pages/goods/mine/my-goods",
+			"style": {
+				"navigationBarTitleText":"我的商品"
+			}
+		},
+		{
+			"path":"pages/goods/mine/publish-goods",
+			"style": {
+				"navigationBarTitleText":"发布商品"
+			}
+		},
+		{
+			"path":"pages/goods/goods-info",
+			"style": {
+				"navigationBarTitleText":"商品详情"
+			}
+		},
+		{
+			"path":"pages/activity/mine/my-activity",
+			"style": {
+				"navigationBarTitleText":"我的活动"
+			}
+		},
+		{
+			"path":"pages/activity/activity-info",
+			"style": {
+				"navigationBarTitleText":"活动详情"
+			}
+		},
+		{
+			"path":"pages/around/shop-list",
+			"style": {
+				"navigationBarTitleText":"周围商家"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#7A7E83",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/icon_index.png",
+				"selectedIconPath": "static/icon_index_selected.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/index/community",
+				"iconPath": "static/icon_community.png",
+				"selectedIconPath": "static/icon_community_selected.png",
+				"text": "社区"
+			},
+			{
+				"pagePath": "pages/index/activity",
+				"iconPath": "static/icon_activity.png",
+				"selectedIconPath": "static/icon_activity_selected.png",
+				"text": "活动"
+			},
+			{
+				"pagePath": "pages/index/mine",
+				"iconPath": "static/icon_mine.png",
+				"selectedIconPath": "static/icon_mine_selected.png",
+				"text": "我的"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "居易",
+		"navigationBarBackgroundColor": "#F5F5F5",
+		"backgroundColor": "#F5F5F5"
+	}
+}

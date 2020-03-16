@@ -1,0 +1,1 @@
+<view class="data-v-66d42453"><block wx:for="{{5}}" wx:for-item="item" wx:for-index="index" wx:key="index"><block class="data-v-66d42453"><view data-event-opts="{{[['tap',[['itemClick',['$event']]]]]}}" bindtap="__e" class="data-v-66d42453">打开地图</view></block></block></view>

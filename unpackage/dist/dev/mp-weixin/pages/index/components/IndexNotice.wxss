@@ -1,0 +1,11 @@
+.index-notice-container .swiper-container.data-v-96c6a3e4 {
+  height: 80rpx;
+}
+.index-notice-container .swiper-container .swiper-item.data-v-96c6a3e4 {
+  height: 100%;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+

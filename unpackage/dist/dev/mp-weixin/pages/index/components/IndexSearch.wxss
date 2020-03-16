@@ -1,0 +1,16 @@
+.container.data-v-5428d644 {
+  padding: 20rpx;
+  padding-bottom: -3rpx;
+}
+.container .index-search-container.data-v-5428d644 {
+  border: #f1f1f1 solid 1px;
+  border-radius: 60rpx;
+  padding: 12rpx;
+  box-shadow: 0 5px 4px rgba(0,0,0,0.04);
+  text-align: center;
+}
+.container .index-search-container .hint-text.data-v-5428d644 {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+

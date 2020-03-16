@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "储藏室信息",
+  "usingComponents": {
+    "select-image": "/pages/common/select-images"
+  }
+}

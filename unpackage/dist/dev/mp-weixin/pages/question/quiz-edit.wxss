@@ -1,0 +1,14 @@
+.quiz-container.data-v-5d34db99 {
+  position: relative;
+}
+.quiz-container .title-wrapper > textarea.data-v-5d34db99 {
+  height: 2.6em;
+}
+.quiz-container .content-wrapper.data-v-5d34db99 {
+  margin-top: 10rpx;
+  border: 0 !important;
+}
+.quiz-container .content-wrapper > textarea.data-v-5d34db99 {
+  height: 9em;
+}
+

@@ -1,0 +1,20 @@
+.image-wrapper.data-v-550c082c {
+  height: 400rpx;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.image-wrapper > image.data-v-550c082c {
+  width: 100%;
+  height: 100%;
+}
+.progress-wrapper.data-v-550c082c {
+  position: relative;
+}
+.progress-wrapper .release-count.data-v-550c082c {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: #f43f3b;
+}
+

@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['itemClick',['$0'],['item']]]]]}}" class="item-wrapper data-v-544f42d2" bindtap="__e"><view class="text-lg text-black title data-v-544f42d2">{{''+item.title+''}}</view><foot vue-id="084d7e94-1" info="{{item}}" class="data-v-544f42d2" bind:__l="__l"></foot></view>

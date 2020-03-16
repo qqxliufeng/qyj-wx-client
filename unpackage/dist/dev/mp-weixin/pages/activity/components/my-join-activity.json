@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "activity-item": "/pages/activity/components/activity-item"
+  }
+}

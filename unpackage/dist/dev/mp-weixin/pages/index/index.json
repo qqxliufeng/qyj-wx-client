@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "居易",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "index-search": "/pages/index/components/IndexSearch",
+    "index-swiper": "/pages/index/components/IndexSwiper",
+    "index-notice": "/pages/index/components/IndexNotice",
+    "index-type": "/pages/index/components/IndexType",
+    "no-login-tip": "/pages/index/components/NoLoginTip"
+  }
+}

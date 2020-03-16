@@ -1,0 +1,5 @@
+.lost-container .content-wrapper.data-v-8ee2c8b8 {
+  margin-top: 90rpx;
+  height: calc(100vh - 90rpx);
+}
+

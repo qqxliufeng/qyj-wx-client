@@ -1,0 +1,37 @@
+.index-type-container.data-v-2abc34f0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.index-type-container .type-item.data-v-2abc34f0 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+          align-items: flex-start;
+  height: 140rpx;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 5px 4px rgba(0,0,0,0.02);
+  background-color: #fff;
+  position: relative;
+}
+.index-type-container .type-item .name.data-v-2abc34f0 {
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+}
+.index-type-container .type-item .icon.data-v-2abc34f0 {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  padding: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+

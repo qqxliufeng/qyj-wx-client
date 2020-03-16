@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "问题信息",
+  "usingComponents": {
+    "fab": "/components/my-fab",
+    "load-more": "/components/uni-load-more"
+  }
+}

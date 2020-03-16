@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的活动",
+  "usingComponents": {
+    "my-tab": "/components/my-tab",
+    "my-join-activity": "/pages/activity/components/my-join-activity",
+    "my-publish-activity": "/pages/activity/components/my-publish-activity"
+  }
+}

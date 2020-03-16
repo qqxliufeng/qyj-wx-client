@@ -1,0 +1,7 @@
+.swiper-container.data-v-1beeefae {
+  margin: 0 20rpx;
+}
+.swiper-container .item.data-v-1beeefae {
+  border-radius: 10rpx;
+}
+

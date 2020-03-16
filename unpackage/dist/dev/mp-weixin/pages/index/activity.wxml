@@ -1,0 +1,1 @@
+<view class="activity-contaner data-v-7dae522c"><cu-custom vue-id="68858b41-1" isBack="{{false}}" bgColor="bg-orange" class="data-v-7dae522c" bind:__l="__l" vue-slots="{{['content']}}"><view slot="content" class="data-v-7dae522c">活动</view></cu-custom></view>

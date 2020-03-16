@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "foot": "/components/list-item-foot"
+  }
+}

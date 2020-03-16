@@ -1,0 +1,14 @@
+.publish-lost-container.data-v-7fdf625c {
+  position: relative;
+}
+.publish-lost-container .title-wrapper > textarea.data-v-7fdf625c {
+  height: 2.6em;
+}
+.publish-lost-container .content-wrapper.data-v-7fdf625c {
+  margin-top: 10rpx;
+  border: 0 !important;
+}
+.publish-lost-container .content-wrapper > textarea.data-v-7fdf625c {
+  height: 9em;
+}
+
