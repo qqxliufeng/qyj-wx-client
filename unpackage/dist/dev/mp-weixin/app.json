@@ -31,7 +31,8 @@
     "pages/goods/goods-info",
     "pages/activity/mine/my-activity",
     "pages/activity/activity-info",
-    "pages/around/shop-list"
+    "pages/around/shop-list",
+    "pages/around/shop-info"
   ],
   "subPackages": [],
   "window": {

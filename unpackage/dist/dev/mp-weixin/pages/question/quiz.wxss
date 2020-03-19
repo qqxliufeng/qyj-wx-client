@@ -1,14 +1,14 @@
-.quiz-container.data-v-c011e0e4 {
+.quiz-container.data-v-c4f1fe60 {
   position: relative;
 }
-.quiz-container .title-wrapper > textarea.data-v-c011e0e4 {
+.quiz-container .title-wrapper > textarea.data-v-c4f1fe60 {
   height: 2.6em;
 }
-.quiz-container .content-wrapper.data-v-c011e0e4 {
+.quiz-container .content-wrapper.data-v-c4f1fe60 {
   margin-top: 10rpx;
   border: 0 !important;
 }
-.quiz-container .content-wrapper > textarea.data-v-c011e0e4 {
+.quiz-container .content-wrapper > textarea.data-v-c4f1fe60 {
   height: 9em;
 }
 

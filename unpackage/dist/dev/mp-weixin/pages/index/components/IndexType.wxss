@@ -1,9 +1,9 @@
-.index-type-container.data-v-2abc34f0 {
+.index-type-container.data-v-18ec4224 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.index-type-container .type-item.data-v-2abc34f0 {
+.index-type-container .type-item.data-v-18ec4224 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
@@ -20,11 +20,11 @@
   background-color: #fff;
   position: relative;
 }
-.index-type-container .type-item .name.data-v-2abc34f0 {
+.index-type-container .type-item .name.data-v-18ec4224 {
   margin-left: 30rpx;
   margin-bottom: 30rpx;
 }
-.index-type-container .type-item .icon.data-v-2abc34f0 {
+.index-type-container .type-item .icon.data-v-18ec4224 {
   position: absolute;
   bottom: 10rpx;
   right: 10rpx;

@@ -3,7 +3,7 @@
 
 // const baseIP = 'https://www.yixinglvxing.com'
 
-const baseIP = 'http://192.168.0.108:8001'
+const baseIP = 'http://192.168.0.101:8001'
 
 export const baseUrl = baseIP + '/api/index/'
 

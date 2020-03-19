@@ -1,4 +1,4 @@
-.foot-container.data-v-f00d6ae6 {
+.foot-container.data-v-3f6bc24f {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -6,7 +6,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.foot-container .circle.data-v-f00d6ae6 {
+.foot-container .circle.data-v-3f6bc24f {
   display: inline-block;
   margin: 0 20rpx;
   width: 8rpx;

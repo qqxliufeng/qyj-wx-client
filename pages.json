@@ -195,6 +195,12 @@
 			"style": {
 				"navigationBarTitleText":"周围商家"
 			}
+		},
+		{
+			"path":"pages/around/shop-info",
+			"style": {
+				"navigationBarTitleText":"商家详情"
+			}
 		}
 	],
 	"tabBar": {

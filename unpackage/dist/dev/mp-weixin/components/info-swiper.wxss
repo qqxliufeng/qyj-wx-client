@@ -1,15 +1,15 @@
-.swiper-container.data-v-b7e481da {
+.swiper-container.data-v-146ba2de {
   position: relative;
 }
-.swiper-container .swiper-wrapper.data-v-b7e481da {
+.swiper-container .swiper-wrapper.data-v-146ba2de {
   width: 100%;
   height: 480rpx;
 }
-.swiper-container .swiper-wrapper .swiper-item-wrapper > image.data-v-b7e481da {
+.swiper-container .swiper-wrapper .swiper-item-wrapper > image.data-v-146ba2de {
   width: 100%;
   height: 100%;
 }
-.swiper-container .index-wrapper.data-v-b7e481da {
+.swiper-container .index-wrapper.data-v-146ba2de {
   position: absolute;
   bottom: 40rpx;
   right: 20rpx;

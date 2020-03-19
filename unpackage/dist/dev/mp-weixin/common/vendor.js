@@ -1674,9 +1674,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 15:
-/*!***************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/utils/init-vue.js ***!
-  \***************************************************************/
+/*!*************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/utils/init-vue.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1687,7 +1687,7 @@ var _userInfo = _interopRequireDefault(__webpack_require__(/*! ../data/user-info
 var _filter = _interopRequireDefault(__webpack_require__(/*! ../filter/filter.js */ 18));
 var _RouteParams = _interopRequireDefault(__webpack_require__(/*! ../mixins/RouteParams.js */ 19));
 var _utils = _interopRequireDefault(__webpack_require__(/*! ./utils.js */ 20));
-var _router = __webpack_require__(/*! ./router.js */ 480);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _router = __webpack_require__(/*! ./router.js */ 21);function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.prototype.$urlPath = urlPath;
 _vue.default.prototype.$userInfo = _userInfo.default;
 _vue.default.prototype.$utils = _utils.default;
@@ -1831,9 +1831,9 @@ _vue.default.prototype.$back = function (delta) {
 /***/ }),
 
 /***/ 16:
-/*!***************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/utils/url-path.js ***!
-  \***************************************************************/
+/*!*************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/utils/url-path.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1843,7 +1843,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.myYearCard
 
 // const baseIP = 'https://www.yixinglvxing.com'
 
-var baseIP = 'http://192.168.0.108:8001';
+var baseIP = 'http://192.168.0.101:8001';
 
 var baseUrl = baseIP + '/api/index/';
 
@@ -1995,9 +1995,9 @@ var myYearCardInfo = userInfoUrl + 'cardDetails';exports.myYearCardInfo = myYear
 /***/ }),
 
 /***/ 17:
-/*!***************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/data/user-info.js ***!
-  \***************************************************************/
+/*!*************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/data/user-info.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2095,9 +2095,9 @@ var token = uni.getStorageSync('token');var _default =
 /***/ }),
 
 /***/ 18:
-/*!**************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/filter/filter.js ***!
-  \**************************************************************/
+/*!************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/filter/filter.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2142,9 +2142,9 @@ var yearsDiff = 12 * mounthsDiff;var _default =
 /***/ }),
 
 /***/ 19:
-/*!*******************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/mixins/RouteParams.js ***!
-  \*******************************************************************/
+/*!*****************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/mixins/RouteParams.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8192,9 +8192,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 20:
-/*!************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/utils/utils.js ***!
-  \************************************************************/
+/*!**********************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/utils/utils.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8273,10 +8273,41 @@ function bMapTransqqMap(lng, lat) {
 
 /***/ }),
 
-/***/ 27:
-/*!*************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/mixins/login.js ***!
-  \*************************************************************/
+/***/ 21:
+/*!***********************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/utils/router.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.formateObjToParamStr = formateObjToParamStr;function filter(str) {// 特殊字符转义
+  str += ''; // 隐式转换
+  str = str.replace(/%/g, '%25');
+  str = str.replace(/\+/g, '%2B');
+  str = str.replace(/ /g, '%20');
+  str = str.replace(/\//g, '%2F');
+  str = str.replace(/\?/g, '%3F');
+  str = str.replace(/&/g, '%26');
+  str = str.replace(/\=/g, '%3D');
+  str = str.replace(/#/g, '%23');
+  return str;
+}
+
+function formateObjToParamStr(paramObj) {
+  var sdata = [];
+  for (var attr in paramObj) {
+    sdata.push("".concat(attr, "=").concat(filter(paramObj[attr])));
+  }
+  return sdata.join('&');
+}
+
+/***/ }),
+
+/***/ 28:
+/*!***********************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/mixins/login.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8329,45 +8360,14 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!********************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/pages.json ***!
-  \********************************************************/
+/*!******************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/pages.json ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-/***/ }),
-
-/***/ 480:
-/*!*************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/utils/router.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.formateObjToParamStr = formateObjToParamStr;function filter(str) {// 特殊字符转义
-  str += ''; // 隐式转换
-  str = str.replace(/%/g, '%25');
-  str = str.replace(/\+/g, '%2B');
-  str = str.replace(/ /g, '%20');
-  str = str.replace(/\//g, '%2F');
-  str = str.replace(/\?/g, '%3F');
-  str = str.replace(/&/g, '%26');
-  str = str.replace(/\=/g, '%3D');
-  str = str.replace(/#/g, '%23');
-  return str;
-}
-
-function formateObjToParamStr(paramObj) {
-  var sdata = [];
-  for (var attr in paramObj) {
-    sdata.push("".concat(attr, "=").concat(filter(paramObj[attr])));
-  }
-  return sdata.join('&');
-}
 
 /***/ }),
 
@@ -9270,21 +9270,21 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ }),
 
 /***/ 7:
-/*!*************************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/pages.json?{"type":"style"} ***!
-  \*************************************************************************/
+/*!***********************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/pages.json?{"type":"style"} ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "居易", "navigationStyle": "custom", "usingComponents": { "index-search": "/pages/index/components/IndexSearch", "index-swiper": "/pages/index/components/IndexSwiper", "index-notice": "/pages/index/components/IndexNotice", "index-type": "/pages/index/components/IndexType", "no-login-tip": "/pages/index/components/NoLoginTip" }, "usingAutoImportComponents": {} }, "pages/index/community": { "navigationBarTitleText": "小区", "navigationStyle": "custom", "usingComponents": { "activity-item": "/pages/activity/components/activity-item" }, "usingAutoImportComponents": {} }, "pages/index/activity": { "navigationBarTitleText": "活动", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/mine": { "navigationBarTitleText": "我的", "navigationStyle": "custom", "usingComponents": { "login": "/pages/index/components/login" }, "usingAutoImportComponents": {} }, "pages/question/mine/my-question": { "navigationBarTitleText": "我的问答", "usingComponents": { "my-fab": "/components/my-fab", "my-tab": "/components/my-tab", "question-list": "/pages/question/components/question-list" }, "usingAutoImportComponents": {} }, "pages/question/quiz": { "navigationBarTitleText": "我要提问", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/question/question-info": { "navigationBarTitleText": "问题信息", "usingComponents": { "fab": "/components/my-fab", "load-more": "/components/uni-load-more" }, "usingAutoImportComponents": {} }, "pages/question/quiz-edit": { "navigationBarTitleText": "编辑问题", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/lost/mine/my-lost": { "navigationBarTitleText": "我的失物信息", "usingComponents": { "my-tab": "/components/my-tab", "lost-list": "/pages/lost/components/lost-list" }, "usingAutoImportComponents": {} }, "pages/lost/publish-lost": { "navigationBarTitleText": "发布信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/lost/lost-info": { "navigationBarTitleText": "失物详情", "usingComponents": { "fab": "/components/my-fab", "load-more": "/components/uni-load-more" }, "usingAutoImportComponents": {} }, "pages/lost/edit-lost": { "navigationBarTitleText": "编辑失物信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/common/bind-community": { "navigationBarTitleText": "绑定小区", "usingComponents": { "community-item": "/components/community-item" }, "usingAutoImportComponents": {} }, "pages/community/my-community": { "navigationBarTitleText": "我的小区", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/community/community-info": { "navigationStyle": "custom", "usingComponents": { "info-custom-nav": "/components/info-custom-nav", "info-swiper": "/components/info-swiper" }, "usingAutoImportComponents": {} }, "pages/community/community-phone": { "navigationBarTitleText": "小区服务电话", "usingComponents": { "empty-data": "/components/empty-data" }, "usingAutoImportComponents": {} }, "pages/community/add-new-phone": { "navigationBarTitleText": "添加电话", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/person-info": { "navigationBarTitleText": "个人信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/house/mine/my-house": { "navigationBarTitleText": "我发布的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/house/mine/publish-house": { "navigationBarTitleText": "房屋信息", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/house/mine/publish-car-house": { "navigationBarTitleText": "车位信息", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/house/mine/publish-store-house": { "navigationBarTitleText": "储藏室信息", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/house/house-info": { "navigationStyle": "custom", "usingComponents": { "info-custom-nav": "/components/info-custom-nav", "info-swiper": "/components/info-swiper" }, "usingAutoImportComponents": {} }, "pages/house/mine/publish-house-info": { "navigationBarTitleText": "更多信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/setting": { "navigationBarTitleText": "设置", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/feedback": { "navigationBarTitleText": "意见反馈", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/goods/mine/my-goods": { "navigationBarTitleText": "我的商品", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/goods/mine/publish-goods": { "navigationBarTitleText": "发布商品", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/goods/goods-info": { "navigationBarTitleText": "商品详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/activity/mine/my-activity": { "navigationBarTitleText": "我的活动", "usingComponents": { "my-tab": "/components/my-tab", "my-join-activity": "/pages/activity/components/my-join-activity", "my-publish-activity": "/pages/activity/components/my-publish-activity" }, "usingAutoImportComponents": {} }, "pages/activity/activity-info": { "navigationBarTitleText": "活动详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/around/shop-list": { "navigationBarTitleText": "周围商家" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "居易", "navigationBarBackgroundColor": "#F5F5F5", "backgroundColor": "#F5F5F5" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "居易", "navigationStyle": "custom", "usingComponents": { "index-search": "/pages/index/components/IndexSearch", "index-swiper": "/pages/index/components/IndexSwiper", "index-notice": "/pages/index/components/IndexNotice", "index-type": "/pages/index/components/IndexType", "no-login-tip": "/pages/index/components/NoLoginTip" }, "usingAutoImportComponents": {} }, "pages/index/community": { "navigationBarTitleText": "小区", "navigationStyle": "custom", "usingComponents": { "activity-item": "/pages/activity/components/activity-item" }, "usingAutoImportComponents": {} }, "pages/index/activity": { "navigationBarTitleText": "活动", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/mine": { "navigationBarTitleText": "我的", "navigationStyle": "custom", "usingComponents": { "login": "/pages/index/components/login" }, "usingAutoImportComponents": {} }, "pages/question/mine/my-question": { "navigationBarTitleText": "我的问答", "usingComponents": { "my-fab": "/components/my-fab", "my-tab": "/components/my-tab", "question-list": "/pages/question/components/question-list" }, "usingAutoImportComponents": {} }, "pages/question/quiz": { "navigationBarTitleText": "我要提问", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/question/question-info": { "navigationBarTitleText": "问题信息", "usingComponents": { "fab": "/components/my-fab", "load-more": "/components/uni-load-more" }, "usingAutoImportComponents": {} }, "pages/question/quiz-edit": { "navigationBarTitleText": "编辑问题", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/lost/mine/my-lost": { "navigationBarTitleText": "我的失物信息", "usingComponents": { "my-tab": "/components/my-tab", "lost-list": "/pages/lost/components/lost-list" }, "usingAutoImportComponents": {} }, "pages/lost/publish-lost": { "navigationBarTitleText": "发布信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/lost/lost-info": { "navigationBarTitleText": "失物详情", "usingComponents": { "fab": "/components/my-fab", "load-more": "/components/uni-load-more" }, "usingAutoImportComponents": {} }, "pages/lost/edit-lost": { "navigationBarTitleText": "编辑失物信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/common/bind-community": { "navigationBarTitleText": "绑定小区", "usingComponents": { "community-item": "/components/community-item" }, "usingAutoImportComponents": {} }, "pages/community/my-community": { "navigationBarTitleText": "我的小区", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/community/community-info": { "navigationStyle": "custom", "usingComponents": { "info-custom-nav": "/components/info-custom-nav", "info-swiper": "/components/info-swiper" }, "usingAutoImportComponents": {} }, "pages/community/community-phone": { "navigationBarTitleText": "小区服务电话", "usingComponents": { "empty-data": "/components/empty-data" }, "usingAutoImportComponents": {} }, "pages/community/add-new-phone": { "navigationBarTitleText": "添加电话", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/person-info": { "navigationBarTitleText": "个人信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/house/mine/my-house": { "navigationBarTitleText": "我发布的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/house/mine/publish-house": { "navigationBarTitleText": "房屋信息", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/house/mine/publish-car-house": { "navigationBarTitleText": "车位信息", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/house/mine/publish-store-house": { "navigationBarTitleText": "储藏室信息", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/house/house-info": { "navigationStyle": "custom", "usingComponents": { "info-custom-nav": "/components/info-custom-nav", "info-swiper": "/components/info-swiper" }, "usingAutoImportComponents": {} }, "pages/house/mine/publish-house-info": { "navigationBarTitleText": "更多信息", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/setting": { "navigationBarTitleText": "设置", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mine/feedback": { "navigationBarTitleText": "意见反馈", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/goods/mine/my-goods": { "navigationBarTitleText": "我的商品", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/goods/mine/publish-goods": { "navigationBarTitleText": "发布商品", "usingComponents": { "select-image": "/pages/common/select-images" }, "usingAutoImportComponents": {} }, "pages/goods/goods-info": { "navigationBarTitleText": "商品详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/activity/mine/my-activity": { "navigationBarTitleText": "我的活动", "usingComponents": { "my-tab": "/components/my-tab", "my-join-activity": "/pages/activity/components/my-join-activity", "my-publish-activity": "/pages/activity/components/my-publish-activity" }, "usingAutoImportComponents": {} }, "pages/activity/activity-info": { "navigationBarTitleText": "活动详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/around/shop-list": { "navigationBarTitleText": "周围商家", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/around/shop-info": { "navigationBarTitleText": "商家详情" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "居易", "navigationBarBackgroundColor": "#F5F5F5", "backgroundColor": "#F5F5F5" } };exports.default = _default;
 
 /***/ }),
 
-/***/ 74:
-/*!************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/mixins/List.js ***!
-  \************************************************************/
+/***/ 75:
+/*!**********************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/mixins/List.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9356,9 +9356,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 8:
-/*!************************************************************************!*\
-  !*** /Users/liufeng/Desktop/qyj/qyj-client/pages.json?{"type":"stat"} ***!
-  \************************************************************************/
+/*!**********************************************************************!*\
+  !*** /Users/lf/Desktop/qyj/qyj-wx-client/pages.json?{"type":"stat"} ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

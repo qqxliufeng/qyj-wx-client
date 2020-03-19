@@ -1,10 +1,10 @@
-.lost-info-container .user-info-wrapper .nickname.data-v-aff321e8 {
+.lost-info-container .user-info-wrapper .nickname.data-v-5c74a60a {
   margin-left: 20rpx;
 }
-.lost-info-container .title-wrapper.data-v-aff321e8 {
+.lost-info-container .title-wrapper.data-v-5c74a60a {
   padding: 20rpx 0;
 }
-.lost-info-container .desc-wrapper .desc-tip.data-v-aff321e8 {
+.lost-info-container .desc-wrapper .desc-tip.data-v-5c74a60a {
   font-size: 26rpx;
   margin-bottom: 10rpx;
   display: -webkit-box;
@@ -14,7 +14,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.lost-info-container .desc-wrapper .desc-tip.data-v-aff321e8::before {
+.lost-info-container .desc-wrapper .desc-tip.data-v-5c74a60a::before {
   content: '';
   display: inline-block;
   width: 6rpx;
@@ -22,20 +22,20 @@
   background-color: #39b54a;
   margin-right: 20rpx;
 }
-.lost-info-container .image-wrapper.data-v-aff321e8 {
+.lost-info-container .image-wrapper.data-v-5c74a60a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   margin: 20rpx 0;
 }
-.lost-info-container .image-wrapper .image.data-v-aff321e8 {
+.lost-info-container .image-wrapper .image.data-v-5c74a60a {
   margin: 0 5rpx;
   height: 160rpx;
   width: calc(calc(100% - 20rpx) / 3);
   border-radius: 10rpx;
   background-color: #f5f5f5;
 }
-.lost-info-container .foot-wrapper.data-v-aff321e8 {
+.lost-info-container .foot-wrapper.data-v-5c74a60a {
   margin-top: 10rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -44,19 +44,19 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.lost-info-container .help-wrapper.data-v-aff321e8 {
+.lost-info-container .help-wrapper.data-v-5c74a60a {
   margin-top: 20rpx;
 }
-.lost-info-container .help-wrapper .replay-item-wrapper.data-v-aff321e8 {
+.lost-info-container .help-wrapper .replay-item-wrapper.data-v-5c74a60a {
   padding: 20rpx;
   border-top: 1px solid #f5f5f5;
 }
-.lost-info-container .help-wrapper .replay-item-wrapper .item-header.data-v-aff321e8 {
+.lost-info-container .help-wrapper .replay-item-wrapper .item-header.data-v-5c74a60a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.lost-info-container .help-wrapper .replay-item-wrapper .item-header .nickname-wrapper.data-v-aff321e8 {
+.lost-info-container .help-wrapper .replay-item-wrapper .item-header .nickname-wrapper.data-v-5c74a60a {
   margin-left: 20rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -69,14 +69,14 @@
   -webkit-justify-content: space-between;
           justify-content: space-between;
 }
-.lost-info-container .reply-wrapper.data-v-aff321e8 {
+.lost-info-container .reply-wrapper.data-v-5c74a60a {
   margin-top: 20rpx;
 }
-.lost-info-container .reply-content-wrapper.data-v-aff321e8 {
+.lost-info-container .reply-content-wrapper.data-v-5c74a60a {
   margin: 20rpx;
   height: calc(90vh - 44px);
 }
-.lost-info-container .reply-content-wrapper > textarea.data-v-aff321e8 {
+.lost-info-container .reply-content-wrapper > textarea.data-v-5c74a60a {
   display: block;
   width: 100%;
   border-radius: 10rpx;
@@ -86,7 +86,7 @@
   padding: 10rpx;
   font-size: 32rpx;
 }
-.lost-info-container .header-wrapper.data-v-aff321e8 {
+.lost-info-container .header-wrapper.data-v-5c74a60a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -95,16 +95,16 @@
           justify-content: space-between;
   border-bottom: #f5f5f5 solid 1px;
 }
-.lost-info-container .replay-item-wrapper.data-v-aff321e8 {
+.lost-info-container .replay-item-wrapper.data-v-5c74a60a {
   padding: 20rpx;
   border-top: 1px solid #f5f5f5;
 }
-.lost-info-container .replay-item-wrapper .item-header.data-v-aff321e8 {
+.lost-info-container .replay-item-wrapper .item-header.data-v-5c74a60a {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.lost-info-container .replay-item-wrapper .item-header .nickname-wrapper.data-v-aff321e8 {
+.lost-info-container .replay-item-wrapper .item-header .nickname-wrapper.data-v-5c74a60a {
   margin-left: 20rpx;
   display: -webkit-box;
   display: -webkit-flex;

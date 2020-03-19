@@ -1,14 +1,14 @@
-.publish-lost-container.data-v-f50fe146 {
+.publish-lost-container.data-v-6b498f9f {
   position: relative;
 }
-.publish-lost-container .title-wrapper > textarea.data-v-f50fe146 {
+.publish-lost-container .title-wrapper > textarea.data-v-6b498f9f {
   height: 2.6em;
 }
-.publish-lost-container .content-wrapper.data-v-f50fe146 {
+.publish-lost-container .content-wrapper.data-v-6b498f9f {
   margin-top: 10rpx;
   border: 0 !important;
 }
-.publish-lost-container .content-wrapper > textarea.data-v-f50fe146 {
+.publish-lost-container .content-wrapper > textarea.data-v-6b498f9f {
   height: 9em;
 }
 
