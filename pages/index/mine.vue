@@ -55,7 +55,7 @@
 			<view style="height: 20rpx;"></view>
 		</view>
 		<view v-else>
-			<cu-custom bgColor="bg-gradual-pink">
+			<cu-custom bgColor="bg-gradual-orange">
 				<block slot="content">个人中心</block>
 			</cu-custom>
 			<login title="登录后可查看“我的”页面"></login>
