@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "绑定小区",
-  "usingComponents": {
-    "community-item": "/components/community-item"
-  }
-}

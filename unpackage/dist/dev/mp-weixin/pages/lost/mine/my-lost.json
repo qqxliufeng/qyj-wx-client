@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "我的失物信息",
-  "usingComponents": {
-    "my-tab": "/components/my-tab",
-    "lost-list": "/pages/lost/components/lost-list"
-  }
-}

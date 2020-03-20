@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "房屋信息",
-  "usingComponents": {
-    "select-image": "/pages/common/select-images"
-  }
-}

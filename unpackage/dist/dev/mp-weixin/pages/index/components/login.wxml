@@ -1,1 +1,0 @@
-<view class="login-container data-v-5596f9cb"><view class="iconfont data-v-5596f9cb" style="font-size:240rpx;color:#bbbbbb;"></view><view class="text-black text-lg data-v-5596f9cb" style="margin:40rpx;">{{title}}</view><button data-event-opts="{{[['tap',[['login',['$event']]]]]}}" class="cu-btn bg-yellow round shadow data-v-5596f9cb" bindtap="__e">立即登录</button></view>

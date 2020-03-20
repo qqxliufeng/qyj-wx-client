@@ -1,1 +1,0 @@
-<view class="container data-v-adf146fe"><text class="text-white data-v-adf146fe">主人，您还未登录呢~我不会离开</text><view style="flex:1;" class="data-v-adf146fe"></view><button data-event-opts="{{[['tap',[['login',['$event']]]]]}}" class="cu-btn round sm bg-yellow data-v-adf146fe" bindtap="__e">立即登录</button></view>

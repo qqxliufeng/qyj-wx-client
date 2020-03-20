@@ -160,6 +160,9 @@
 					},
 					onRequestFail: (errorCode, error) => {
 						this.$toast(error)
+					},
+					onRequestComplete: () => {
+						uni.stopPullDownRefresh()
 					}
 				})
 			},
@@ -171,35 +174,10 @@
 			}
 		},
 		onLoad() {
+			uni.startPullDownRefresh()
+		},
+		onPullDownRefresh() {
 			this.getData()
-			// uni.authorize({
-			//     scope: 'scope.userLocation',
-			//     success: () => {
-			// 		console.log('获取地位置成功')
-			// 		uni.chooseLocation({
-			// 		    success: function (res) {
-			// 		        console.log('位置名称：' + res.name);
-			// 		        console.log('详细地址：' + res.address);
-			// 		        console.log('纬度：' + res.latitude);
-			// 		        console.log('经度：' + res.longitude);
-			// 		    }
-			// 		})
-			// 		// uni.getLocation({
-			// 		//     success:(res) => {
-			// 		// 		uni.openLocation({
-			// 		// 			latitude: res.latitude,
-			// 		// 			longitude: res.longitude,
-			// 		// 			success: function () {
-			// 		// 				console.log('success');
-			// 		// 			}
-			// 		// 		});
-			// 		//     }
-			// 		// })
-			//     },
-			// 	fail: () => {
-			// 		console.log('获取失败')
-			// 	}
-			// })
 		}
 	}
 </script>

@@ -1,1 +1,0 @@
-<view class="{{['fab-container shadow-blur data-v-680cecbc',bgColor]}}">{{''+title+''}}</view>

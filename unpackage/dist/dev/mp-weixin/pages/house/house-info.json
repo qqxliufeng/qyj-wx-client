@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "info-custom-nav": "/components/info-custom-nav",
-    "info-swiper": "/components/info-swiper"
-  }
-}

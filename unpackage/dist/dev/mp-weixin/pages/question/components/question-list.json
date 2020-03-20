@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "empty-data": "/components/empty-data",
-    "list-item-one": "/components/list-item-one",
-    "list-item-two": "/components/list-item-two",
-    "list-item-three": "/components/list-item-three"
-  }
-}
