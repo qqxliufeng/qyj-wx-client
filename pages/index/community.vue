@@ -3,60 +3,71 @@
 		<cu-custom :isBack="false" bgColor="bg-orange">
 			<block slot="content">小区</block>
 		</cu-custom>
-		<view class="bind-tip-wrapper text-sm light bg-red" v-if="showTip">
-			<text class="cuIcon-close text-black" @click="closeTip"></text>
-			<text class="text-black margin-left-sm">
-				绑定小区后，展示更精彩
-			</text>
-			<text style="flex: 1;"></text>
-			<text class="bind margin-left-sm">
-				绑定
-			</text>
-		</view>
-		<view class="padding-sm bg-white flex align-center shadow-sm">
-			<text class="text-black text-bold text-xl">{{currentCommunity.name}}</text>
-			<text class="flex-sub"></text>
-			<picker :range="communityNames" @change="communityChange">
-				<text class="text-gray text-df" v-if="communities.length > 0">切换<text class="cuIcon-order exchange"></text></text>
-			</picker>
-		</view>
-		<view class="grid col-4 bg-white margin-top-sm shadow-sm">
-			<view v-for="(item, index) of types" :key="index" class="padding-sm">
-				<view @click="typeItemClick(item.onClick)">
-					<view class="iconfont item-type-icon text-white" style="font-size: 22px;" :class="[item.cuIcon, item.color]"></view>
-					<view class="text-black text-bold text-df text-center margin-top-xs">{{item.title}}</view>
+		<block v-if="isLogin">
+			<view class="bind-tip-wrapper text-sm light bg-red" v-if="showTip">
+				<text class="cuIcon-close text-black" @click="closeTip"></text>
+				<text class="text-black margin-left-sm">
+					绑定小区后，展示更精彩
+				</text>
+				<text style="flex: 1;"></text>
+				<text class="bind margin-left-sm" @click="bindCommunity">
+					绑定
+				</text>
+			</view>
+			<block v-if="currentCommunity">
+				<view class="padding-sm bg-white flex align-center shadow-sm">
+					<text class="text-black text-bold text-xl">{{currentCommunity.name}}</text>
+					<text class="flex-sub"></text>
+					<picker :range="communityNames" @change="communityChange">
+						<text class="text-gray text-df" v-if="communities.length > 0">切换<text class="cuIcon-order exchange"></text></text>
+					</picker>
 				</view>
-			</view>
-		</view>
-		<view class="cu-bar bg-white margin-top-sm" style="min-height: 40px;">
-			<view class="action sub-title">
-				<text class="text-xl text-bold text-yellow">最新活动</text>
-				<text class="bg-yellow" style="width:2rem"></text>
-			</view>
-		</view>
-		<block>
-			<block v-for="(item, index) of activities" :key="index">
-				<activity-item></activity-item>
+				<view class="grid col-4 bg-white margin-top-sm shadow-sm">
+					<view v-for="(item, index) of types" :key="index" class="padding-sm">
+						<view @click="typeItemClick(item.onClick)">
+							<view class="iconfont item-type-icon text-white" style="font-size: 22px;" :class="[item.cuIcon, item.color]"></view>
+							<view class="text-black text-bold text-df text-center margin-top-xs">{{item.title}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="cu-bar bg-white margin-top-sm" style="min-height: 40px;">
+					<view class="action sub-title">
+						<text class="text-xl text-bold text-yellow">最新活动</text>
+						<text class="bg-yellow" style="width:2rem"></text>
+					</view>
+				</view>
+				<block>
+					<block v-for="(item, index) of activities" :key="index">
+						<activity-item></activity-item>
+					</block>
+					<view class="text-center padding-sm bg-white" style="margin-top: 1px;">
+						<text class="see-more-mobile">查看更多<text class="cuIcon-right"></text></text>
+					</view>
+				</block>
+				<view class="cu-bar bg-white margin-top-xs" style="min-height: 40px;">
+					<view class="action sub-title">
+						<text class="text-xl text-bold text-yellow">今日团购</text>
+						<text class="bg-yellow" style="width:2rem"></text>
+					</view>
+				</view>
 			</block>
-			<view class="text-center padding-sm bg-white" style="margin-top: 1px;">
-				<text class="see-more-mobile">查看更多<text class="cuIcon-right"></text></text>
-			</view>
 		</block>
-		<view class="cu-bar bg-white margin-top-xs" style="min-height: 40px;">
-			<view class="action sub-title">
-				<text class="text-xl text-bold text-yellow">今日团购</text>
-				<text class="bg-yellow" style="width:2rem"></text>
-			</view>
-		</view>
+		<block v-else>
+			<login title="登录后可查看“我的小区”页面"></login>
+		</block>
 	</view>
 </template>
 
 <script>
 	import ActivityItem from '../activity/components/activity-item.vue'
+	import LoginMixin from '../../mixins/login.js'
+	import Login from './components/login.vue'
 	export default {
 		name: 'Community',
+		mixins: [LoginMixin],
 		components: {
-			ActivityItem
+			ActivityItem,
+			Login
 		},
 		data() {
 			return {
@@ -84,7 +95,7 @@
 						}
 					},
 					{
-						title: '好邻居',
+						title: '服务/资讯',
 						color: 'bg-gradual-orange',
 						cuIcon: 'iconlinju',
 						onClick: () => {
@@ -115,9 +126,13 @@
 		},
 		computed: {
 			communityNames () {
-				return this.communities.map(it => {
-					return it.name
-				})
+				if (this.communities) {
+					return this.communities.map(it => {
+						return it.name
+					})	
+				} else {
+					return []
+				}				
 			}
 		},
 		methods: {
@@ -132,6 +147,27 @@
 			},
 			expand () {
 				this.mobileExpand = !this.mobileExpand
+			},
+			onLogin () {
+				this.currentCommunity = this.$userInfo.getPrimaryCommunity()
+				if (this.currentCommunity) {
+					this.showTip = !this.$userInfo.isBindCommunity()
+					this.communities = this.$userInfo.getCommunities()
+				} else {
+					uni.showModal({
+						content: '您还未添加任何小区，是否立即添加？',
+						confirmText: '添加',
+						cancelText: '暂不添加',
+						success: (res) => {
+							if (res.confirm) {
+								this.$push('/pages/common/bind-community')
+							} 
+						}
+					})
+				}
+			},
+			bindCommunity () {
+				this.$push('/pages/common/bind-community')
 			}
 		}
 	}

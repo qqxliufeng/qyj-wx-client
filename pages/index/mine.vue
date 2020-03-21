@@ -19,7 +19,7 @@
 				</view>
 			</view>
 			<view class="bg-white menu-wrapper2">
-				<view class="text-black text-lg title">我的服务</view>
+				<view class="text-black text-lg title">我的订单</view>
 				<view class="menu-wrapper3">
 					<view class="item-wrapper" v-for="(item, index) of myOrders" :key="index" @click="menuClick(item.click)">
 						<text class="iconfont icon" :class="[item.color, item.icon, item.bgColor]"></text>
@@ -116,7 +116,7 @@
 				nickName: this.$userInfo.state.nickname,
 				myOrders: [
 					{
-						name: '我的订单',
+						name: '待付款',
 						icon: 'iconorder',
 						color: 'text-black',
 						bgColor: 'bg-white',
@@ -136,13 +136,13 @@
 						}
 					},
 					{
-						name: '我的团购',
+						name: '待收货',
 						icon: 'icontuangou1',
 						color: 'text-black',
 						bgColor: 'bg-white'
 					},
 					{
-						name: '我的活动',
+						name: '已完成',
 						icon: 'iconhuodong2',
 						color: 'text-black',
 						bgColor: 'bg-white',
@@ -162,7 +162,7 @@
 						}
 					},
 					{
-						name: '我的认证',
+						name: '退款/售后',
 						icon: 'iconrenzheng',
 						color: 'text-black',
 						bgColor: 'bg-white'
@@ -191,14 +191,14 @@
 						}
 					},
 					{
-						name: '物业信息',
-						icon: 'iconyezhubaoxiu',
+						name: '我的认证',
+						icon: 'iconrenzheng',
 						color: 'text-black',
 						bgColor: 'bg-white'
 					},
 					{
-						name: '常用电话',
-						icon: 'icondianhua',
+						name: '我的活动',
+						icon: 'iconhuodong2',
 						color: 'text-black',
 						bgColor: 'bg-white',
 						click: () => {

@@ -16,7 +16,7 @@
 			}
 		},
 		{
-			"path": "pages/index/activity",
+			"path": "pages/index/shop-car",
 			"style": {
 				"navigationBarTitleText": "活动",
 				"navigationStyle":"custom"
@@ -220,13 +220,13 @@
 				"pagePath": "pages/index/community",
 				"iconPath": "static/icon_community.png",
 				"selectedIconPath": "static/icon_community_selected.png",
-				"text": "社区"
+				"text": "小区"
 			},
 			{
-				"pagePath": "pages/index/activity",
-				"iconPath": "static/icon_activity.png",
-				"selectedIconPath": "static/icon_activity_selected.png",
-				"text": "活动"
+				"pagePath": "pages/index/shop-car",
+				"iconPath": "static/icon_shop_car.png",
+				"selectedIconPath": "static/icon_shop_car_select.png",
+				"text": "购物车"
 			},
 			{
 				"pagePath": "pages/index/mine",

@@ -79,9 +79,13 @@ export default {
 		return uni.getStorageSync('communities')
 	},
 	getPrimaryCommunity () {
-		return uni.getStorageSync('communities').filter(item => {
-			return Number(item.pivot.is_primary) === 1
-		})[0]
+		if (this.isBindCommunity()) {
+			return uni.getStorageSync('communities').filter(item => {
+				return Number(item.pivot.is_primary) === 1
+			})[0]
+		} else {
+			return null
+		}
 	},
 	getCommunitiesCount () {
 		return uni.getStorageSync('communities').length
