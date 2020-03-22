@@ -89,5 +89,11 @@ export default {
 	},
 	getCommunitiesCount () {
 		return uni.getStorageSync('communities').length
+	},
+	saveCurrentCity (city) {
+		uni.setStorageSync('currentCity', city)
+	},
+	currentCity () {
+		return uni.getStorageSync('currentCity') || '济南市'
 	}
 }

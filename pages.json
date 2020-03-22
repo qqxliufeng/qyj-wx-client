@@ -12,7 +12,8 @@
 			"path": "pages/index/community",
 			"style": {
 				"navigationBarTitleText": "小区",
-				"navigationStyle":"custom"
+				"navigationStyle":"custom",
+				"enablePullDownRefresh": true
 			}
 		},
 		{

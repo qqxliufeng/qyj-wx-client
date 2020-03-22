@@ -67,7 +67,13 @@ const commonModuleUrl = 'common/'
 
 export const imageActionUrl = baseIP + '/api/common/' +commonModuleUrl + 'upload'
 
+/* ================公共模块================ */
+
+/* ================小区模块================ */
+
 const communityModule = 'community/'
+
+export const getAllCities = communityModule + 'getAllCities'
 
 export const getCommunities = communityModule + 'getAllCommunitiesByArea'
 
@@ -83,7 +89,7 @@ export const getCommunityPhones = communityModule + 'getPhoneInfos'
 
 export const addPhoneInfo = communityModule + 'addPhoneInfo'
 
-/* ================公共模块================ */
+/* ================小区模块================ */
 
 /* ================租房模块================ */
 

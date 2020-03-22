@@ -11,8 +11,8 @@
 		</cu-custom>
 		<view class="cu-modal top-modal text-left" :style="style" :class="showModal ? 'show' : ''" @click="hidenModal">
 			<view class="cu-dialog" style="min-height: 40vh;">
-				<button class="cu-btn round margin-sm" :class="item.isCheck ? 'bg-yellow' : ''" v-for="(item, index) of cities" :key="index" @click.stop="cityItemClick(item)">
-					{{item.name}}
+				<button class="cu-btn round margin-sm" :class="item.isChecked ? 'bg-yellow' : ''" v-for="(item, index) of cities" :key="index" @click.stop="cityItemClick(item)">
+					{{item.city}}
 				</button>
 			</view>
 		</view>
@@ -98,26 +98,13 @@
 		},
 		data() {
 			return {
-				currentCity: '济南',
+				currentCity: this.$userInfo.currentCity(),
 				currentCommunity: '',
 				house: null,
 				goods: null,
 				showModal: false,
 				style: `padding-top:${this.CustomBar}px;`,
-				cities: [
-					{
-						name: '济南市',
-						isCheck: true
-					},
-					{
-						name: '济南市',
-						isCheck: false
-					},
-					{
-						name: '济南市',
-						isCheck: false
-					}
-				]
+				cities: null
 			}
 		},
 		methods: {
@@ -133,14 +120,17 @@
 			cityItemClick (item) {
 				this.hidenModal()
 				this.cities.forEach(it => {
-					it.isCheck = it === item
+					it.isChecked = it === item
 				})
+				this.currentCity = item.city
+				this.$userInfo.saveCurrentCity(item.city)
+				uni.startPullDownRefresh()
 			},
 			getData () {
 				this.$http({
 					url: this.$urlPath.indexInfo,
 					params: {
-						area: '济南市'
+						area: this.$userInfo.currentCity()
 					},
 					onRequestSuccess: (res) => {
 						this.house = res.data.house_list
@@ -171,9 +161,21 @@
 			},
 			goodsItemClick (item) {
 				this.$push('/pages/goods/goods-info?gid=' + item.id)
+			},
+			getCities () {
+				this.$http({
+					url: this.$urlPath.getAllCities,
+					onRequestSuccess: (res) => {
+						this.cities = res.data
+						this.cities.forEach(it => {
+							this.$set(it, 'isChecked', it.city === this.currentCity)
+						})
+					}
+				})
 			}
 		},
 		onLoad() {
+			this.getCities()
 			uni.startPullDownRefresh()
 		},
 		onPullDownRefresh() {

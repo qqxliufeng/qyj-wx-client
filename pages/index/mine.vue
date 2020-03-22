@@ -117,8 +117,8 @@
 				myOrders: [
 					{
 						name: '待付款',
-						icon: 'iconorder',
-						color: 'text-black',
+						icon: 'icondaifukuan',
+						color: 'text-yellow',
 						bgColor: 'bg-white',
 						click: () => {
 							if (!this.$userInfo.isBindCommunity()) {
@@ -137,14 +137,14 @@
 					},
 					{
 						name: '待收货',
-						icon: 'icontuangou1',
-						color: 'text-black',
+						icon: 'icondaishouhuo',
+						color: 'text-yellow',
 						bgColor: 'bg-white'
 					},
 					{
 						name: '已完成',
-						icon: 'iconhuodong2',
-						color: 'text-black',
+						icon: 'icondingdanyiwancheng',
+						color: 'text-yellow',
 						bgColor: 'bg-white',
 						click: () => {
 							if (!this.$userInfo.isBindCommunity()) {
@@ -163,8 +163,8 @@
 					},
 					{
 						name: '退款/售后',
-						icon: 'iconrenzheng',
-						color: 'text-black',
+						icon: 'icontuikuan',
+						color: 'text-yellow',
 						bgColor: 'bg-white'
 					}
 				],

@@ -26,7 +26,7 @@
 				this.$http({
 					url: this.$urlPath.getCommunities,
 					params: {
-						areaName: '济南'
+						areaName: this.$userInfo.currentCity()
 					},
 					onRequestSuccess: (res) => {
 						if (res.data) {
@@ -52,7 +52,8 @@
 			},
 			bindCommunity (item) {
 				uni.showModal({
-					content: '是否要绑定该小区？',
+					title: '重要提示',
+					content: '请确认是否为本小区真实业主，一旦绑定，不可更改，确定要绑定该小区吗？',
 					success: (res) => {
 						if (res.confirm) {
 							this.onBindCommunity(item)
@@ -65,13 +66,16 @@
 					url: this.$urlPath.bindCommunity,
 					params: {
 						cid: item.id,
-						isPrimary: 0
+						isPrimary: this.communityList.length > 0 ? '0' : '1'
 					},
 					onRequestSuccess: (res) => {
 						this.$userInfo.saveCommunities(res.data)
 						item.isBind = true
-						this.$toast('绑定成功')
-						uni.$emit('refreshBindCommunity')
+						uni.$emit(this.$events.REFRESH_BIND_COMMUNITY)
+						uni.showModal({
+							title: '提示',
+							content: '您已成功绑定该小区'
+						})
 						this.$back()
 					},
 					onRequestFail: (errorCode, error) => {

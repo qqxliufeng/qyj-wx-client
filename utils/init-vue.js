@@ -13,7 +13,8 @@ Vue.prototype.$events = {
 	REFRESH_HOUSE: 'refreshHouse',
 	REFRESH_LOST: 'refreshLost',
 	REFRESH_QUESTION: 'refreshQuestion',
-	REFRESH_GOODS: 'refreshGoods'
+	REFRESH_GOODS: 'refreshGoods',
+	REFRESH_BIND_COMMUNITY: 'refreshBindCommunity'
 }
 
 Vue.mixin(routeParams)

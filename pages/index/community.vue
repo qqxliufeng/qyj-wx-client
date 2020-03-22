@@ -18,8 +18,8 @@
 				<view class="padding-sm bg-white flex align-center shadow-sm">
 					<text class="text-black text-bold text-xl">{{currentCommunity.name}}</text>
 					<text class="flex-sub"></text>
-					<picker :range="communityNames" @change="communityChange">
-						<text class="text-gray text-df" v-if="communities.length > 0">切换<text class="cuIcon-order exchange"></text></text>
+					<picker :range="communityNames" @change="communityChange" v-if="communities.length > 1">
+						<text class="text-gray text-df">切换<text class="cuIcon-order exchange"></text></text>
 					</picker>
 				</view>
 				<view class="grid col-4 bg-white margin-top-sm shadow-sm">
@@ -169,6 +169,16 @@
 			bindCommunity () {
 				this.$push('/pages/common/bind-community')
 			}
+		},
+		onLoad() {
+			uni.$on(this.$events.REFRESH_BIND_COMMUNITY, () => {
+				this.currentCommunity = this.$userInfo.getPrimaryCommunity()
+				this.showTip = !this.$userInfo.isBindCommunity()
+				this.communities = this.$userInfo.getCommunities()
+			})
+		},
+		onUnload() {
+			uni.$off(this.$events.REFRESH_BIND_COMMUNITY)
 		}
 	}
 </script>
