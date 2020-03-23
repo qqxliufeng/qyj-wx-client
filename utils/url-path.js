@@ -89,6 +89,10 @@ export const getCommunityPhones = communityModule + 'getPhoneInfos'
 
 export const addPhoneInfo = communityModule + 'addPhoneInfo'
 
+export const getAroundBusiness = communityModule + 'getAroundBusiness'
+
+export const getBusinessInfo = communityModule + 'getBusinessInfo'
+
 /* ================小区模块================ */
 
 /* ================租房模块================ */

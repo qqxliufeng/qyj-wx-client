@@ -195,7 +195,8 @@
 		{
 			"path":"pages/around/shop-list",
 			"style": {
-				"navigationBarTitleText":"周围商家"
+				"navigationBarTitleText":"吃喝玩乐",
+				"enablePullDownRefresh":true
 			}
 		},
 		{

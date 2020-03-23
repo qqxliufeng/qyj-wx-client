@@ -26,7 +26,7 @@
 					<view v-for="(item, index) of types" :key="index" class="padding-sm">
 						<view @click="typeItemClick(item.onClick)">
 							<view class="iconfont item-type-icon text-white" style="font-size: 22px;" :class="[item.cuIcon, item.color]"></view>
-							<view class="text-black text-bold text-df text-center margin-top-xs">{{item.title}}</view>
+							<view class="text-black text-bold text-sm text-center margin-top-xs">{{item.title}}</view>
 						</view>
 					</view>
 				</view>
@@ -107,7 +107,7 @@
 						color: 'bg-gradual-purple',
 						cuIcon: 'iconfujin',
 						onClick: () => {
-							this.$push('/pages/around/shop-list')
+							this.$push('/pages/around/shop-list?cid=' + this.currentCommunity.id + '&lng=' + this.currentCommunity.lng + '&lat=' + this.currentCommunity.lat)
 						}
 					}
 				],

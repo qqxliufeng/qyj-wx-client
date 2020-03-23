@@ -8,18 +8,18 @@
 			</view>
 		</view>
 		<view class="info-wrapper padding-left-sm">
-			<view class="text-black text-lg text-bold text-cut">这是一个标题</view>
-			<view class="text-df">
+			<view class="text-black text-df text-bold text-cut">这是一个标题</view>
+			<view class="text-sm">
 				<text>时间：</text>
 				<text class="text-red">2019-1-1</text>
 				<text class="margin-left-xs margin-right-xs">至</text>
 				<text class="text-red">2019-1-1</text>
 			</view>
-			<view class="text-df flex">
+			<view class="text-sm flex">
 				<text>地点：</text>
 				<text class="text-red text-cut flex-sub">1号楼前面</text>
 			</view>
-			<view class="flex align-center text-df">
+			<view class="flex align-center text-sm">
 				<text>人数：</text>
 				<text class="text-red">不限</text>
 				<text class="flex-sub"></text>

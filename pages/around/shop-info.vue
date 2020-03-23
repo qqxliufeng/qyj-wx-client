@@ -1,40 +1,36 @@
 <template>
-	<view>
+	<view v-if="info">
 		<view class="base-info bg-white margin-sm padding-sm">
 			<view class="text-black text-bold text-lg">
-				超意兴（印象济南店）
+				{{info.shop_name}}
 			</view>
 			<view class="flex margin-tb-sm">
 				<view class="image-wrapper">
-					<image mode="aspectFill" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg"></image>
+					<image mode="aspectFill" :src="info.shop_logo"></image>
 				</view>
 				<view class="flex-sub margin-left-sm">
-					<view class="cu-tag line-yellow sm round">好吃</view>
-					<view class="cu-tag line-yellow sm round">好吃</view>
-					<view class="cu-tag line-yellow sm round">好吃</view>
-					<view class="cu-tag line-yellow sm round">好吃</view>
-					<view class="cu-tag line-yellow sm round">好吃</view>
+					<view class="cu-tag line-yellow sm round" v-for="(tag, index) of info.shop_tags" :key="index">{{tag}}</view>
 				</view>
 			</view>
 			<view class="text-sm text-black flex align-center">
-				<text>槐荫区印象济南店 距您1.5km</text>
+				<text>{{info.shop_address}}<text class="text-red" style="margin-left: 10rpx;">距小区：{{info.distance}}  km</text></text>
 			</view>
-			<view class="text-black text-sm">
-				营业时间 10:00 - 20:00
+			<view class="text-black text-sm" style="margin-top: 10rpx;">
+				营业时间 {{info.shop_open_time}} - {{info.shop_close_time}}
 			</view>
 		</view>
 		<view class="text-red text-df text-bold padding-left">
 			<text class="title">标语</text>
 		</view>
 		<view class="margin-sm padding-sm text-sm text-black bg-white base-info">
-			“好吃不吓“
+			“{{info.shop_slogan}}“
 		</view>
 		<block>
 			<view class="text-red text-df text-bold padding-left">
 				<text class="title">服务信息</text>
 			</view>
 			<view class="margin-sm padding-sm text-sm text-black bg-white base-info">
-				好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵好吃不贵
+				{{info.shop_description}}
 			</view>
 		</block>
 		<block>
@@ -42,23 +38,68 @@
 				<text class="title">详情</text>
 			</view>
 			<view class="image-info-wrapper bg-white padding-sm">
-				<image mode="aspectFill" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg"></image>
-				<image mode="aspectFill" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg"></image>
-				<image mode="aspectFill" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg"></image>
+				<image mode="aspectFill" :src="image" v-for="(image, index) of info.shop_images" :key="index"></image>
 			</view>
 		</block>
 		<view style="height: 50px;"></view>
 		<view class="cu-bar bg-white tabbar border shop foot">
 			<view class="flex-sub"></view>
-			<button class="cu-btn bg-orange round shadow-blur margin-right">联系商家</button>
-			<button class="cu-btn bg-red round shadow-blur margin-right">到这里去</button>
+			<button class="cu-btn bg-orange round shadow-blur margin-right" @click="makePhone">联系商家</button>
+			<button class="cu-btn bg-red round shadow-blur margin-right" @click="openLocation">到这里去</button>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {bMapTransqqMap, getDistance} from '../../utils/utils.js'
 	export default {
-		name: 'ShopInfo'
+		name: 'ShopInfo',
+		data() {
+			return {
+				info: null
+			}
+		},
+		methods: {
+			getData () {
+				this.$http({
+					url: this.$urlPath.getBusinessInfo,
+					params: {
+						bid: this.$routeParams.bid || ''
+					},
+					onRequestSuccess: (res) => {
+						this.info = res.data
+						if (this.info.shop_tags) {
+							this.info.shop_tags = this.info.shop_tags.split(',')
+						}
+						if (this.info.shop_images) {
+							this.info.shop_images = this.info.shop_images.split(',')
+						}
+						this.info.distance = getDistance(this.$routeParams.lat, this.$routeParams.lng, this.info.shop_lat, this.info.shop_lng).toFixed(2)
+					},
+					onRequestFail: (errorCode, error) => {
+						this.$toast(error)
+					}
+				})
+			},
+			makePhone () {
+				uni.makePhoneCall({
+					phoneNumber: this.info.shop_phone
+				})
+			},
+			openLocation () {
+				const {lng, lat} = bMapTransqqMap(this.info.shop_lng, this.info.shop_lat)
+				uni.openLocation({
+					latitude: lat,
+					longitude: lng,
+					name: this.info.shop_name,
+					address: this.info.shop_address,
+					scale: 18
+				})
+			}
+		},
+		onLoad () {
+			this.getData()
+		}
 	}
 </script>
 
@@ -68,6 +109,7 @@
 .image-wrapper
 	width 150rpx
 	height 150rpx
+	border #F5F5F5 solid 1px
 	background-color #F5F5F5
 	& > image
 		width 100%

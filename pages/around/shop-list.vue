@@ -1,62 +1,90 @@
 <template>
 	<view>
-		<block v-for="(item, index) of 5" :key="index">
-			<view class="item-wrapper padding-sm bg-white solid-bottom flex" @click="itemClick">
+		<block v-for="item of list" :key="item.id">
+			<view class="item-wrapper padding-sm bg-white flex" @click="itemClick(item)">
 				<view class="image-wrapper">
-					<image mode="aspectFill" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg"></image>
+					<image mode="aspectFill" :src="item.logo"></image>
 				</view>
 				<view class="info-wrapper flex-sub padding-left-sm flex flex-direction justify-between">
-					<view class="text-black text-bold text-df text-cut">超意兴（印象济南店）</view>
+					<view class="text-black text-bold text-df text-cut">{{item.name}}</view>
 					<view>
-						<view class='cu-tag line-blue sm round'>便宜</view>
-						<view class='cu-tag line-red sm round'>便宜</view>
-						<view class='cu-tag line-red sm round'>便宜</view>
+						<view class='cu-tag sm round' :class="index % 2 === 0 ? 'line-red' : 'line-blue'" v-for="(tag, index) of item.tags" :key="index">{{tag}}</view>
 					</view>
 					<view class="text-xs text-back text-cut">
-						“好吃的不得了，快快来吧”
+						“{{item.slogan}}”
 					</view>
 					<view class="flex justify-between align-center">
-						<view class="text-xs text-gray">
-							海亮艺术华府1号楼商铺
+						<view class="text-xs text-gray text-cut flex-sub margin-right-sm">
+							{{item.address}}
 						</view>
-						<view class="cuIcon-location location-wrapper text-yellow"></view>
+						<view class="text-yellow text-sm">
+							{{item.distance}}km
+						</view>
 					</view>
 				</view>
 			</view>
 		</block>
+		<load-more :status="loadingType"></load-more>
 	</view>
 </template>
 
 <script>
+	import List from '../../mixins/List.js'
+	import {qqMapTransBMap, getDistance} from '../../utils/utils.js'
 	export default {
 		name: 'ShopList',
-		data() {
-			return {
-				list: [],
-				lat: 0,
-				lng: 0
+		mixins: [List],
+		methods: {
+			getData () {
+				this.$http({
+					url: this.$urlPath.getAroundBusiness,
+					params: {
+						cid: this.$routeParams.cid || '',
+						lng: this.$routeParams.lng || 0,
+						lat: this.$routeParams.lat || 0,
+						page: this.page.num
+					},
+					loadingTip: null,
+					onRequestSuccess: (res) => {
+						res.data.forEach(it => {
+							if (it.tags) {
+								it.tags = it.tags.split(',')
+							}
+							it.distance = getDistance(this.$routeParams.lat, this.$routeParams.lng, it.lat, it.lng).toFixed(2)
+						})
+						this.loadSuccess(res.data)
+					},
+					onRequestFail: (errorCode, error) => {
+						this.$toast(error)
+					},
+					onRequestComplete: () => {
+						uni.stopPullDownRefresh()
+					}
+				})
+			},
+			itemClick (item) {
+				// this.$push('/pages/around/shop-info?bid=' + item.id + '&lng=' + this.$routeParams.lng + '&lat=' + this.$routeParams.lat)
+				uni.chooseLocation({
+					complete: (res) => {
+						console.log(res)
+						const {lng, lat} = qqMapTransBMap(res.longitude, res.latitude)
+						console.log(lng.toFixed(6), lat.toFixed(6));
+					}
+				})
 			}
 		},
-		methods: {
-			itemClick () {
-				// uni.openLocation({
-				// 	latitude: this.lat,
-				// 	longitude: this.lng,
-				// 	name: '印象济南',
-				// 	address: '泉世界',
-				// 	scale: 18
-				// })
-				this.$push('/pages/around/shop-info')
-			}
+		onLoad() {
+			uni.startPullDownRefresh()
 		}
 	}
 </script>
 
 <style lang="stylus" scoped>
 .item-wrapper
+	border-bottom #F5F5F5 solid 1px
 	.image-wrapper
 		width 25%
-		height 150rpx
+		height 170rpx
 		& > image
 			width 100%
 			height 100%

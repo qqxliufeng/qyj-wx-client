@@ -46,6 +46,7 @@
 <script>
 	import InfoCustomNav from '../../components/info-custom-nav.vue'
 	import InfoSwiper from '../../components/info-swiper.vue'
+	import {bMapTransqqMap} from '../../utils/utils.js'
 	export default {
 		name: 'CommunityInfo',
 		components: {
@@ -93,10 +94,13 @@
 							this.simpleTags[item] = this.tags[item]
 						}
 						this.communityInfo.images = this.communityInfo.images.split(',')
+						const {lng, lat} = bMapTransqqMap(this.communityInfo.lng, this.communityInfo.lat)
+						this.communityInfo.lng = lng
+						this.communityInfo.lat = lat
 						this.markers = [
 							{
-								latitude: Number(this.communityInfo.lat),
-								longitude: Number(this.communityInfo.lng),
+								latitude: lat,
+								longitude: lng,
 								iconPath: '../../static/image_location.png'
 							}
 						]
