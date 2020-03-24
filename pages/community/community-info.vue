@@ -94,13 +94,10 @@
 							this.simpleTags[item] = this.tags[item]
 						}
 						this.communityInfo.images = this.communityInfo.images.split(',')
-						const {lng, lat} = bMapTransqqMap(this.communityInfo.lng, this.communityInfo.lat)
-						this.communityInfo.lng = lng
-						this.communityInfo.lat = lat
 						this.markers = [
 							{
-								latitude: lat,
-								longitude: lng,
+								latitude: this.communityInfo.lat,
+								longitude: this.communityInfo.lng,
 								iconPath: '../../static/image_location.png'
 							}
 						]

@@ -51,7 +51,7 @@
 </template>
 
 <script>
-	import {bMapTransqqMap, getDistance} from '../../utils/utils.js'
+	import {getDistance} from '../../utils/utils.js'
 	export default {
 		name: 'ShopInfo',
 		data() {
@@ -87,10 +87,9 @@
 				})
 			},
 			openLocation () {
-				const {lng, lat} = bMapTransqqMap(this.info.shop_lng, this.info.shop_lat)
 				uni.openLocation({
-					latitude: lat,
-					longitude: lng,
+					latitude: Number(this.info.shop_lat),
+					longitude: Number(this.info.shop_lng),
 					name: this.info.shop_name,
 					address: this.info.shop_address,
 					scale: 18

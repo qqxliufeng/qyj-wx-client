@@ -30,7 +30,7 @@
 
 <script>
 	import List from '../../mixins/List.js'
-	import {qqMapTransBMap, getDistance} from '../../utils/utils.js'
+	import {getDistance} from '../../utils/utils.js'
 	export default {
 		name: 'ShopList',
 		mixins: [List],
@@ -63,14 +63,7 @@
 				})
 			},
 			itemClick (item) {
-				// this.$push('/pages/around/shop-info?bid=' + item.id + '&lng=' + this.$routeParams.lng + '&lat=' + this.$routeParams.lat)
-				uni.chooseLocation({
-					complete: (res) => {
-						console.log(res)
-						const {lng, lat} = qqMapTransBMap(res.longitude, res.latitude)
-						console.log(lng.toFixed(6), lat.toFixed(6));
-					}
-				})
+				this.$push('/pages/around/shop-info?bid=' + item.id + '&lng=' + this.$routeParams.lng + '&lat=' + this.$routeParams.lat)
 			}
 		},
 		onLoad() {
