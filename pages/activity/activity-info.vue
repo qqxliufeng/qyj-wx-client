@@ -2,6 +2,7 @@
 	<view>
 		<view class="image-wrapper">
 			<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="aspectFill"></image>
+			<view class="activity-status text-white text-df">活动进行中</view>
 		</view>
 		<view class="bg-white padding-sm">
 			<view class="text-black text-bold text-lg">
@@ -20,7 +21,7 @@
 		<view class="bg-white padding-sm">
 			<view class="cu-progress round sm striped active progress-wrapper">
 				<view class="bg-green" style="width: 60%"></view>
-				<text class="release-count">仅剩10人</text>
+				<text class="release-count text-sm">仅剩10人</text>
 			</view>
 		</view>
 		<view class="bg-white padding-left-sm padding-right-sm margin-top-sm">
@@ -70,7 +71,7 @@
 				12345678
 			</view>
 			<view class="margin-right-sm">
-				<button class="cu-btn bg-red round shadow-blur">立即报名</button>
+				<button class="cu-btn bg-red round shadow-blur" @click="signup">立即报名</button>
 			</view>
 		</view>
 	</view>
@@ -96,6 +97,20 @@
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg'
 				]
 			}
+		},
+		methods: {
+			signup () {
+				uni.showModal({
+					title: '提示',
+					content: '是否报名此活动？',
+					confirmText: '报名',
+					success: (res) => {
+						if (res.confirm) {
+							console.log('报名成功');
+						}
+					}
+				})
+			}
 		}
 	}
 </script>
@@ -105,9 +120,18 @@
 	height 400rpx
 	width 100%
 	background-color #F5F5F5
+	position relative
 	& > image
 		width 100%
 		height 100%
+	.activity-status
+		position absolute
+		right 0
+		bottom 20rpx
+		background-color rgba(0, 0, 0, 0.5)
+		border-top-left-radius 60rpx
+		border-bottom-left-radius 60rpx
+		padding 5rpx 40rpx
 .progress-wrapper
 	position relative
 	.release-count

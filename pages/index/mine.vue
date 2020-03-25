@@ -194,7 +194,10 @@
 						name: '我的认证',
 						icon: 'iconrenzheng',
 						color: 'text-black',
-						bgColor: 'bg-white'
+						bgColor: 'bg-white',
+						click: () => {
+							this.$push('/pages/mine/my-auth')
+						} 
 					},
 					{
 						name: '我的活动',
@@ -212,7 +215,7 @@
 									}
 								})
 							} else {
-								this.$push('/pages/community/community-phone')
+								this.$push('/pages/activity/mine/my-activity')
 							}
 						}
 					},

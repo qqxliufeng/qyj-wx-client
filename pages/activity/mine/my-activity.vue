@@ -1,29 +1,31 @@
 <template>
 	<view>
-		<my-tab :items='items' :current="current" @onTabSelect="onTabSelect"></my-tab>
-		<view style="background-color: #f5f5f5; height: 10rpx;"></view>
-		<fab title="发布" @click.native="publish"></fab>
-		<swiper class="content-wrapper" :current="current" @animationfinish="animationfinish">
+		<!-- <my-tab :items='items' :current="current" @onTabSelect="onTabSelect"></my-tab> -->
+		<!-- <view style="background-color: #f5f5f5; height: 10rpx;"></view>
+		<fab title="发布" @click.native="publish"></fab> -->
+		<!-- <swiper class="content-wrapper" :current="current" @animationfinish="animationfinish">
 			<swiper-item>
 				<my-join-activity></my-join-activity>
 			</swiper-item>
 			<swiper-item>
 				<my-publish-activity></my-publish-activity>
 			</swiper-item>
-		</swiper>
+		</swiper> -->
+		<block v-for="(item, index) of 10" :key="index">
+			<activity-item></activity-item>
+		</block>
+		<load-more :status="loadingType"></load-more>
 	</view>
 </template>
 
 <script>
-	import MyTab from '../../../components/my-tab.vue'
-	import MyJoinActivity from '../components/my-join-activity.vue'
-	import MyPublishActivity from '../components/my-publish-activity.vue'
+	import List from '../../../mixins/List.js'
+	import ActivityItem from '../components/activity-item.vue'
 	export default {
 		name: 'MyActivity',
+		mixins: [List],
 		components: {
-			MyTab,
-			MyJoinActivity,
-			MyPublishActivity
+			ActivityItem
 		},
 		data() {
 			return {

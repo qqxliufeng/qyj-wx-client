@@ -42,7 +42,7 @@
 				</view>
 			</view>
 		</block>
-		<button class="cu-btn line-orange margin-tb-sm lg add-button" v-if="communities.length < 2" @click="bindCommunity">
+		<button class="cu-btn bg-gradual-orange margin-tb-sm lg add-button" v-if="communities.length < 2" @click="bindCommunity">
 			<text class="cuIcon-add"></text>添加小区
 		</button>
 	</view>
