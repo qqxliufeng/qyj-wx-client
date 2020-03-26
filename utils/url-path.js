@@ -132,6 +132,16 @@ export const getGoodsInfo = goodsModule + 'getGoodsInfo'
 
 /* ================商品模块================ */
 
+/* ================活动模块================ */
+
+const activityModule = 'activity/'
+
+export const getActivityInfo = activityModule + 'getActivityInfo'
+
+export const joinActivity = activityModule + 'joinActivity'
+
+/* ================活动模块================ */
+
 const userInfoUrl = 'user/'
 
 export const userInfoLoginUrl = userInfoUrl + 'login'

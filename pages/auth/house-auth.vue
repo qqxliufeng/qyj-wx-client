@@ -14,19 +14,19 @@
 			选择房间信息
 		</view>
 		<view class="bg-white text-black text-df padding-sm shadow-sm flex">
-			<view class="flex-sub text-center">
-				请选择楼号
-				<text class="cuIcon-triangledownfill"></text>
+			<view class="flex-sub flex justify-center align-center">
+				<input class="input-wrapper" maxlength="2"/>
+				<text>栋</text>
 			</view>
 			<view class="line"></view>
-			<view class="flex-sub text-center">
-				请选择单元
-				<text class="cuIcon-triangledownfill"></text>
+			<view class="flex-sub justify-center align-center flex">
+				<input class="input-wrapper" maxlength="2"/>
+				<text>单元</text>
 			</view>
 			<view class="line"></view>
-			<view class="flex-sub text-center">
-				请选择房号
-				<text class="cuIcon-triangledownfill"></text>
+			<view class="flex-sub justify-center align-center flex">
+				<input class="input-wrapper" maxlength="4"/>
+				<text>室</text>
 			</view>
 		</view>
 		<view class="bg-white text-black text-lg padding-sm margin-top-sm shadow-sm">
@@ -79,4 +79,9 @@
 	right 0
 	bottom 0
 	text-align center
+.input-wrapper
+	background-color #F5F5F5
+	max-width 100rpx
+	margin-right 2px
+	padding-left 5rpx
 </style>

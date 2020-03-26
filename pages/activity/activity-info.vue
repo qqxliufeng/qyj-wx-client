@@ -2,16 +2,16 @@
 	<view>
 		<view class="image-wrapper">
 			<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="aspectFill"></image>
-			<view class="activity-status text-white text-df">活动进行中</view>
+			<view class="activity-status text-white text-df">{{getStatus()}}</view>
 		</view>
 		<view class="bg-white padding-sm">
 			<view class="text-black text-bold text-lg">
-				收废品的活动开始了
+				{{info.content}}
 			</view>
 			<view class="flex justify-between align-center margin-top-sm">
 				<view>
 					<text class="title">已报名：</text>
-					<text class="text-red text-bold">30</text>
+					<text class="text-red text-bold">{{info.count}}</text>
 				</view>
 				<view class="cu-avatar-group">
 					<view class="cu-avatar round sm" v-for="(item,index) in avatar" :key="index" :style="[{ backgroundImage:'url(' + avatar[index] + ')' }]"></view>
@@ -19,9 +19,9 @@
 			</view>
 		</view>
 		<view class="bg-white padding-sm">
-			<view class="cu-progress round sm striped active progress-wrapper">
-				<view class="bg-green" style="width: 60%"></view>
-				<text class="release-count text-sm">仅剩10人</text>
+			<view class="cu-progress round sm progress-wrapper" :class="info.status === 1 ? 'striped active' : ''">
+				<view :class="info.status === 1 ? 'bg-green' : 'bg-grey'" style="width: 60%"></view>
+				<text class="release-count text-sm">仅剩{{info.max_count - info.min_count}}人</text>
 			</view>
 		</view>
 		<view class="bg-white padding-left-sm padding-right-sm margin-top-sm">
@@ -33,15 +33,15 @@
 			</view>
 			<view class="solid-bottom padding-bottom-sm padding-top-sm">
 				<text class="text-yellow text-df">活动时间：</text>
-				<text class="text-black">2019-11-11上午至2019-22-11下午</text>
+				<text class="text-black">{{info.start_time * 1000 | dateFormat}}至{{info.end_time  * 1000 | dateFormat}}</text>
 			</view>
 			<view class="solid-bottom padding-bottom-sm padding-top-sm">
 				<text class="text-yellow text-df">活动地点：</text>
-				<text class="text-black">1号楼前面</text>
+				<text class="text-black">{{info.address}}</text>
 			</view>
 			<view class="solid-bottom padding-bottom-sm padding-top-sm">
 				<text class="text-yellow text-df">活动人数：</text>
-				<text class="text-black">5~10人</text>
+				<text class="text-black">{{info.min_count}}~{{info.max_count}}人</text>
 			</view>
 			<view class="solid-bottom padding-bottom-sm padding-top-sm">
 				<text class="text-yellow text-df">发&nbsp;&nbsp;起&nbsp;&nbsp;人：</text>
@@ -56,7 +56,7 @@
 				</view>
 			</view>
 			<view class="title padding-bottom-sm text-lg">
-				请带上好的信息来到1号楼前面注意
+				{{info.description}}
 			</view>
 		</view>
 		<view class="cu-bar">
@@ -68,10 +68,10 @@
 				客服
 			</button>
 			<view class="flex-sub text-right padding-right-sm">
-				12345678
+				
 			</view>
 			<view class="margin-right-sm">
-				<button class="cu-btn bg-red round shadow-blur" @click="signup">立即报名</button>
+				<button class="cu-btn round shadow-blur" :class="info.status === 1 && info.join_status === 0 ? 'bg-red' : ''" @click="signup">{{actionTip()}}</button>
 			</view>
 		</view>
 	</view>
@@ -82,23 +82,56 @@
 		name: 'ActivityInfo',
 		data() {
 			return {
-				avatar: [
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg',
-					'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg'
-				]
+				avatar: null,
+				info: null
 			}
 		},
 		methods: {
+			getData () {
+				this.$http({
+					url: this.$urlPath.getActivityInfo,
+					params: {
+						aid: 1
+					},
+					onRequestSuccess: (res) => {
+						this.info = res.data
+						if (this.info) {
+							this.avatar = this.info.users.map(it => {
+								return this.$urlPath.imageUrl + it.avatar
+							})
+						}
+					},
+					onRequestFail: (errorCode, error) => {
+						this.$toast(error)
+					}
+				})
+			},
+			getStatus () {
+				const status = this.info.status
+				switch (status) {
+					case 0:
+						return '活动还未开始'
+					case 1:
+						return '活动进行中'
+					case 2:
+						return '活动人数已满'
+					case 3:
+						return '活动已结束'
+					case 4:
+						return '活动已下架'
+					default:
+						return '活动已下架'
+				}
+			},
+			actionTip () {
+				const status = Number(this.info.join_status)
+				switch (status) {
+					case 0:
+						return '立即报名'
+					case 1:
+						return '报名成功'
+				}
+			},
 			signup () {
 				uni.showModal({
 					title: '提示',
@@ -106,11 +139,25 @@
 					confirmText: '报名',
 					success: (res) => {
 						if (res.confirm) {
-							console.log('报名成功');
+							this.$http({
+								url: this.$urlPath.joinActivity,
+								params: {
+									aid: this.info.id
+								},
+								onRequestSuccess: (res) => {
+									console.log(res)
+								},
+								onRequestFail: (errorCode, error) => {
+									this.$toast(error)
+								}
+							})
 						}
 					}
 				})
 			}
+		},
+		onLoad() {
+			this.getData()
 		}
 	}
 </script>
