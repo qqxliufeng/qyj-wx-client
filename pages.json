@@ -183,7 +183,8 @@
 		{
 			"path":"pages/activity/mine/my-activity",
 			"style": {
-				"navigationBarTitleText":"我参加的活动"
+				"navigationBarTitleText":"我参加的活动",
+				"enablePullDownRefresh": true
 			}
 		},
 		{

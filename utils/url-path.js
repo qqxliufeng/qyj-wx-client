@@ -13,6 +13,8 @@ const indexModule = 'index/'
 
 export const indexInfo = indexModule + 'index'
 
+export const indexCommunity = indexModule + 'community'
+
 /* ================首页模块================ */
 
 /* ================问答模块================ */
@@ -139,6 +141,10 @@ const activityModule = 'activity/'
 export const getActivityInfo = activityModule + 'getActivityInfo'
 
 export const joinActivity = activityModule + 'joinActivity'
+
+export const getCommunityActivityList = activityModule + 'getCommunityActivityList'
+
+export const getJoinActivityList = activityModule + 'getJoinActivityList'
 
 /* ================活动模块================ */
 

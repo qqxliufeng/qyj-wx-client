@@ -25,7 +25,7 @@ export default {
 		const second=dataTime.getSeconds()
 		return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second
 	},
-	dateFormat (timeStamp) {
+	dateFormat (timeStamp, isFull = true) {
 	  const date = new Date(timeStamp);
 	  const YY = date.getFullYear() + '-';
 	  const MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
@@ -33,7 +33,11 @@ export default {
 	  const hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
 	  const mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
 	  const ss = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
-	  return YY + MM + DD +" "+hh + mm + ss;
+	  if (isFull) {
+		return YY + MM + DD +" "+hh + mm + ss;
+	  } else {
+		return YY + MM + DD;
+	  }
 	},
 	imagePath (path) {
 		if (!path) {

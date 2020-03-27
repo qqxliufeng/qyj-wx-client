@@ -2,28 +2,28 @@
 	<view class="activity-item-wrapper padding-left-sm padding-right-sm padding-top-xs padding-bottom-xs bg-white" style="margin-top: 3px;"
 		@click="clickItem">
 		<view class="image-wrapper">
-			<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="aspectFill"></image>
+			<image :src="item.images | imagePath" mode="aspectFill"></image>
 			<view class="status-wrapper text-center padding-top-xs padding-bottom-xs">
-				<text class="text-white text-bold text-sm">进行中</text>
+				<text class="text-white text-bold text-sm">{{getStatusTip()}}</text>
 			</view>
 		</view>
 		<view class="info-wrapper padding-left-sm">
-			<view class="text-black text-df text-bold text-cut">这是一个标题</view>
+			<view class="text-black text-df text-bold text-cut">{{item.content}}</view>
 			<view class="text-sm">
 				<text>时间：</text>
-				<text class="text-red">2019-1-1</text>
+				<text class="text-red">{{item.start_time * 1000 | dateFormat(false)}}</text>
 				<text class="margin-left-xs margin-right-xs">至</text>
-				<text class="text-red">2019-1-1</text>
+				<text class="text-red">{{item.end_time * 1000 | dateFormat(false)}}</text>
 			</view>
 			<view class="text-sm flex">
 				<text>地点：</text>
-				<text class="text-red text-cut flex-sub">1号楼前面</text>
+				<text class="text-red text-cut flex-sub">{{item.address}}</text>
 			</view>
 			<view class="flex align-center text-sm">
 				<text>人数：</text>
-				<text class="text-red">不限</text>
+				<text class="text-red">{{item.min_count + '~' + (item.max_count === -1 ? '不限' : item.max_count)}}</text>
 				<text class="flex-sub"></text>
-				<button class="cu-btn sm bg-gradual-orange" @click.stop="btnClick">我要报名</button>
+				<button v-if="showButton" class="cu-btn sm" :class="Number(item.join_status) === 1 ? 'bg-gradual-blue' : 'bg-gradual-orange'">{{Number(item.join_status) === 1 ? '已经报名' : '立即报名'}}</button>
 			</view>
 		</view>
 	</view>
@@ -32,12 +32,37 @@
 <script>
 	export default {
 		name: 'ActivityItem',
+		props: {
+			item: Object,
+			showButton: {
+				type: Boolean,
+				default: true
+			}
+		},
 		methods: {
-			clickItem () {
-				this.$push('/pages/activity/activity-info')
+			getStatusTip () {
+				switch (this.item.status) {
+					case 0:
+						return '未开始'
+					case 1:
+						if (this.item.end_time * 1000 > new Date().getTime()) {
+							return '进行中'
+						} else {
+							return '已结束'
+						}
+					case 2:
+						return '已满员'
+					case 3:
+						return '已结束'
+					case 4:
+						return '已下架'
+					case 5:
+						return '已下架'
+				}
+				return '未知'
 			},
-			btnClick () {
-				this.$emit('btnClick')
+			clickItem () {
+				this.$push('/pages/activity/activity-info?aid=' + this.item.id)
 			}
 		}
 	}

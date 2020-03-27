@@ -37,8 +37,8 @@
 					</view>
 				</view>
 				<block>
-					<block v-for="(item, index) of activities" :key="index">
-						<activity-item></activity-item>
+					<block v-for="item of activities" :key="item.id">
+						<activity-item :item="item"></activity-item>
 					</block>
 					<view class="text-center padding-sm bg-white" style="margin-top: 1px;">
 						<text class="see-more-mobile">查看更多<text class="cuIcon-right"></text></text>
@@ -111,17 +111,7 @@
 						}
 					}
 				],
-				activities: [
-					{
-						id: 0
-					},
-					{
-						id: 1
-					},
-					{
-						id: 2
-					}
-				]
+				activities: null
 			}
 		},
 		computed: {
@@ -168,6 +158,24 @@
 			},
 			bindCommunity () {
 				this.$push('/pages/common/bind-community')
+			},
+			getData () {
+				this.$http({
+					url: this.$urlPath.indexCommunity,
+					loadingTip: null,
+					params: {
+						cid: this.currentCommunity.id
+					},
+					onRequestSuccess: (res) => {
+						this.activities = res.data.activity_list
+					},
+					onRequestFail: (errorCode, error) => {
+						this.$toast(error)
+					},
+					onRequestComplete: () => {
+						uni.stopPullDownRefresh()
+					}
+				})
 			}
 		},
 		onLoad() {
@@ -176,6 +184,10 @@
 				this.showTip = !this.$userInfo.isBindCommunity()
 				this.communities = this.$userInfo.getCommunities()
 			})
+			uni.startPullDownRefresh()
+		},
+		onPullDownRefresh() {
+			this.getData()
 		},
 		onUnload() {
 			uni.$off(this.$events.REFRESH_BIND_COMMUNITY)

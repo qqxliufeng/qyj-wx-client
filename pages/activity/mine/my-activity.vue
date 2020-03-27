@@ -11,8 +11,8 @@
 				<my-publish-activity></my-publish-activity>
 			</swiper-item>
 		</swiper> -->
-		<block v-for="(item, index) of 10" :key="index">
-			<activity-item></activity-item>
+		<block v-for="item of list" :key="item.id">
+			<activity-item :item="item" :showButton="false"></activity-item>
 		</block>
 		<load-more :status="loadingType"></load-more>
 	</view>
@@ -27,13 +27,25 @@
 		components: {
 			ActivityItem
 		},
-		data() {
-			return {
-				items: ['我参加的', '我发布的'],
-				current: 0
-			}
-		},
 		methods: {
+			getData () {
+				this.$http({
+					url: this.$urlPath.getJoinActivityList,
+					params: {
+						page: this.page.num
+					},
+					loadingType: null,
+					onRequestSuccess: (res) => {
+						this.loadSuccess(res.data)
+					},
+					onRequestFail: (errorCode, error) => {
+						this.$toast('加载失败')
+					},
+					onRequestComplete: () => {
+						uni.stopPullDownRefresh()
+					}
+				})
+			},
 			onTabSelect (index) {
 				this.current = index
 			},
@@ -43,6 +55,9 @@
 				}
 				this.current = e.detail.current
 			}
+		},
+		onLoad() {
+			uni.startPullDownRefresh()
 		}
 	}
 </script>
