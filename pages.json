@@ -217,6 +217,19 @@
 			"style":{
 				"navigationBarTitleText":"房产认证"
 			}
+		},
+		{
+			"path":"pages/message/community-message",
+			"style":{
+				"navigationBarTitleText":"小区消息",
+				"enablePullDownRefresh":true
+			}
+		},
+		{
+			"path":"pages/message/message-info",
+			"style":{
+				"navigationBarTitleText":"消息详情"
+			}
 		}
 	],
 	"tabBar": {

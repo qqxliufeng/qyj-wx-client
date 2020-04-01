@@ -80,7 +80,7 @@
 						color: 'bg-gradual-blue',
 						cuIcon: 'iconxiaoxi1-copy',
 						onClick: () => {
-							this.$push('/pages/around/shop-list')
+							this.$push('/pages/message/community-message')
 						}
 					},
 					{

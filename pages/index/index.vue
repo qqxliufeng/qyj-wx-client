@@ -36,7 +36,7 @@
 								{{item.content}}
 							</view>
 							<view class="text-df flex justify-between align-center" style="margin: 10rpx 0;">
-								<text class="text-red text-price text-bold">{{item.money + '/月'}}</text>
+								<text class="text-red text-price text-bold">{{Number(item.money).toFixed() + '/月'}}</text>
 								<text class="cu-tag line-yellow round sm">{{item.layout}}</text>
 							</view>
 							<view class="text-sm text-gray">
