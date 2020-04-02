@@ -80,7 +80,7 @@
 						color: 'bg-gradual-blue',
 						cuIcon: 'iconxiaoxi1-copy',
 						onClick: () => {
-							this.$push('/pages/message/community-message')
+							this.$push('/pages/message/community-message?cid=' + this.currentCommunity.id)
 						}
 					},
 					{

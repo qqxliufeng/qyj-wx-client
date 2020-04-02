@@ -148,6 +148,16 @@ export const getJoinActivityList = activityModule + 'getJoinActivityList'
 
 /* ================活动模块================ */
 
+/* ================消息模块================ */
+
+const messageModule = 'message/'
+
+export const communityMessage = messageModule + 'getMessageList'
+
+export const messageInfo = messageModule + 'getMessageInfo'
+
+/* ================消息模块================ */
+
 const userInfoUrl = 'user/'
 
 export const userInfoLoginUrl = userInfoUrl + 'login'

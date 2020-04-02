@@ -1,12 +1,12 @@
 <template>
 	<view>
-		<view class="bg-white padding-sm shadow-sm solid-bottom" v-for="(item, index) of 5" :key="index" @click="messageItemClick(item)">
+		<view class="bg-white padding-sm shadow-sm solid-bottom" v-for="item of list" :key="list.id" @click="messageItemClick(item)">
 			<view class="text-black text-bold text-cut">
-				关于做好疫情防护工作的重要安排
+				{{item.title}}
 			</view>
 			<view class="text-gray text-sm margin-top-sm flex justify-between align-center">
-				<text>2020-01-01 11:11:11</text>
-				<text>来源：社区居委会</text>
+				<text>{{item.create_time | dateFormat}}</text>
+				<text>来源：{{item.source}}</text>
 			</view>
 		</view>
 		<load-more :status="loadingType"></load-more>
@@ -23,10 +23,11 @@
 				this.$http({
 					url: this.$urlPath.communityMessage,
 					params: {
-						cid: 1
+						cid: this.$routeParams.cid,
+						page: this.page.num
 					},
 					onRequestSuccess: (res) => {
-						console.log(res)
+						this.loadSuccess(res.data)
 					},
 					onRequestFail: (errorCode, error) => {
 						this.$toast(error)
@@ -37,7 +38,7 @@
 				})
 			},
 			messageItemClick (item) {
-				this.$push('/pages/message/message-info')
+				this.$push('/pages/message/message-info?mid=' + item.id)
 			}
 		},
 		onLoad() {
