@@ -10,6 +10,7 @@
 		<view>
 			<rich-text :nodes="info.content"></rich-text>
 		</view>
+		<view class="text-cut text-black text-bold margin-top">来源：{{info.source}}</view>
 	</view>
 </template>
 
@@ -30,6 +31,7 @@
 					},
 					onRequestSuccess: (res) => {
 						this.info = res.data
+						this.info.content = this.info.content.replace(`<img`, '<img style="width: 100%"')
 					},
 					onRequestFail: (errorCode, error) => {
 						this.$toast(error)

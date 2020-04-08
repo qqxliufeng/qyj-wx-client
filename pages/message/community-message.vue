@@ -5,7 +5,7 @@
 				{{item.title}}
 			</view>
 			<view class="text-gray text-sm margin-top-sm flex justify-between align-center">
-				<text>{{item.create_time | dateFormat}}</text>
+				<text>{{item.create_time * 1000 | dateFormat}}</text>
 				<text>来源：{{item.source}}</text>
 			</view>
 		</view>
