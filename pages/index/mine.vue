@@ -196,7 +196,18 @@
 						color: 'text-black',
 						bgColor: 'bg-white',
 						click: () => {
-							this.$push('/pages/mine/my-auth')
+							if (!this.$userInfo.isBindCommunity()) {
+								uni.showModal({
+									content: '您还未绑定任何小区，是否立即绑定？',
+									success: (res) => {
+										if (res.confirm) {
+											this.$push('/pages/common/bind-community')
+										}
+									}
+								})
+							} else {
+								this.$push('/pages/mine/my-auth')
+							}
 						} 
 					},
 					{

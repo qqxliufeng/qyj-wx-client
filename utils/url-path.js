@@ -91,6 +91,8 @@ export const getCommunityPhones = communityModule + 'getPhoneInfos'
 
 export const addPhoneInfo = communityModule + 'addPhoneInfo'
 
+export const getMyPhoneInfo = communityModule + 'getMyPhoneInfo'
+
 export const getAroundBusiness = communityModule + 'getAroundBusiness'
 
 export const getBusinessInfo = communityModule + 'getBusinessInfo'

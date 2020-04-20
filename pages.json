@@ -219,6 +219,12 @@
 			}
 		},
 		{
+			"path":"pages/auth/new-phone-auth",
+			"style":{
+				"navigationBarTitleText":"通讯录电话认证"
+			}
+		},
+		{
 			"path":"pages/message/community-message",
 			"style":{
 				"navigationBarTitleText":"小区消息",

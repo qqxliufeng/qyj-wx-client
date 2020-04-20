@@ -15,7 +15,7 @@
 		<block v-else>
 			<empty-data emptyTip="暂无服务电话"></empty-data>
 		</block>
-		<view class="add-wrapper margin-top" @click="$push('/pages/community/add-new-phone?cid=' + defaultCommunity.id)">
+		<view class="add-wrapper margin-top" @click="$push('/pages/community/add-new-phone?cid=' + $routeParams.id)">
 			<text class="cuIcon-add text-lg text-blue"></text>
 			<text class="text-blue text-lg margin-left-sm">我要添加</text>
 		</view>

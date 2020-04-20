@@ -16,13 +16,19 @@
 			</view>
 			<block v-if="currentCommunity">
 				<view class="padding-sm bg-white flex align-center shadow-sm">
-					<text class="text-black text-bold text-xl">{{currentCommunity.name}}</text>
+					<text class="text-black text-bold text-lg">{{currentCommunity.name}}</text>
 					<text class="flex-sub"></text>
 					<picker :range="communityNames" @change="communityChange" v-if="communities.length > 1">
 						<text class="text-gray text-df">切换<text class="cuIcon-order exchange"></text></text>
 					</picker>
 				</view>
-				<view class="grid col-4 bg-white margin-top-sm shadow-sm">
+				<view class="cu-bar bg-white margin-top-sm" style="min-height: 40px;">
+					<view class="action sub-title">
+						<text class="text-lg text-bold text-yellow">常用功能</text>
+						<text class="bg-yellow" style="width:2rem"></text>
+					</view>
+				</view>
+				<view class="grid col-4 bg-white shadow-sm" style="margin-top: 3px;">
 					<view v-for="(item, index) of types" :key="index" class="padding-sm">
 						<view @click="typeItemClick(item.onClick)">
 							<view class="iconfont item-type-icon text-white" style="font-size: 22px;" :class="[item.cuIcon, item.color]"></view>
@@ -30,13 +36,13 @@
 						</view>
 					</view>
 				</view>
-				<view class="cu-bar bg-white margin-top-sm" style="min-height: 40px;">
+				<view v-if="activities && activities.length > 0" class="cu-bar bg-white margin-top-sm" style="min-height: 40px;">
 					<view class="action sub-title">
-						<text class="text-xl text-bold text-yellow">最新活动</text>
+						<text class="text-lg text-bold text-yellow">最新活动</text>
 						<text class="bg-yellow" style="width:2rem"></text>
 					</view>
 				</view>
-				<block>
+				<block v-if="activities && activities.length > 0">
 					<block v-for="item of activities" :key="item.id">
 						<activity-item :item="item"></activity-item>
 					</block>
@@ -44,9 +50,9 @@
 						<text class="see-more-mobile">查看更多<text class="cuIcon-right"></text></text>
 					</view>
 				</block>
-				<view class="cu-bar bg-white margin-top-xs" style="min-height: 40px;">
+				<view class="cu-bar bg-white margin-top-sm" style="min-height: 40px;">
 					<view class="action sub-title">
-						<text class="text-xl text-bold text-yellow">今日团购</text>
+						<text class="text-lg text-bold text-yellow">今日团购</text>
 						<text class="bg-yellow" style="width:2rem"></text>
 					</view>
 				</view>
@@ -218,8 +224,8 @@
 		font-size 24rpx
 	.item-type-icon
 		border-radius 20rpx
-		width 80rpx
-		height 80rpx
+		width 70rpx
+		height 70rpx
 		display flex
 		justify-content center
 		align-items center
