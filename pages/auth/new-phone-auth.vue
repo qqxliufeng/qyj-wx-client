@@ -11,7 +11,10 @@
 					<text class="phone" :class="item.color">{{getStatusTip(item)}}</text>
 				</view>
 				<view class="flex justify-between align-center margin-top-sm">
-					<text>提交时间：{{item.create_time * 1000 | dateFormat}}</text>
+					<text>{{item.create_time * 1000 | dateFormat}}</text>
+					<view class="flex-sub"></view>
+					<button class="cu-btn sm bg-gradual-blue margin-right" @click="editPhoneInfo(item)">编辑</button>
+					<button class="cu-btn sm bg-gradual-orange" @click="deletePhoneInfo(item)">删除</button>
 				</view>
 			</view>
 		</block>
@@ -52,6 +55,33 @@
 							}
 						})
 						this.loadSuccess(res.data)
+					}
+				})
+			},
+			editPhoneInfo (item) {
+				if (item.status === 1) {
+					this.$push('/pages/community/edit-phone?pid=' + item.id + '&cid=' + item.community_id)
+				} else {
+					this.$toast('当前信息状态不可以编辑信息')
+				}
+			},
+			deletePhoneInfo (item) {
+				uni.showModal({
+					content: '是否要删除此信息？',
+					confirmText: '删除',
+					success: (res) => {
+						if (res.confirm) {
+							this.$http({
+								url: this.$urlPath.deletePhoneInfo,
+								params: {
+									pid: item.id
+								},
+								onRequestSuccess: (res) => {
+									this.$toast('删除成功')
+									this.getData()
+								}
+							})
+						}
 					}
 				})
 			},

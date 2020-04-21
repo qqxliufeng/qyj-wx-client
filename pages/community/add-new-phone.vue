@@ -54,11 +54,13 @@
 						cid: this.$routeParams.cid,
 						title: this.title,
 						concat: this.concat,
-						phone: this.phone
+						phone: this.phone,
+						status: 0
 					},
 					onRequestSuccess: (res) => {
 						uni.showModal({
 							content: '添加成功，请耐心等待后台审核…',
+							showCancel: false,
 							success: (res) => {
 								this.$back()
 							}

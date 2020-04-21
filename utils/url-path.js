@@ -89,9 +89,15 @@ export const communityInfo = communityModule + 'getCommunityInfo'
 
 export const getCommunityPhones = communityModule + 'getPhoneInfos'
 
+export const getPhoneInfo = communityModule + 'getPhoneInfo'
+
 export const addPhoneInfo = communityModule + 'addPhoneInfo'
 
 export const getMyPhoneInfo = communityModule + 'getMyPhoneInfo'
+
+export const deletePhoneInfo = communityModule + 'deletePhoneInfo'
+
+export const editPhoneInfo = communityModule + 'editPhoneInfo'
 
 export const getAroundBusiness = communityModule + 'getAroundBusiness'
 

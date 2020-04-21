@@ -109,6 +109,12 @@
 			}
 		},
 		{
+			"path": "pages/community/edit-phone",
+			"style": {
+				"navigationBarTitleText": "编辑电话"
+			}
+		},
+		{
 			"path": "pages/mine/person-info",
 			"style": {
 				"navigationBarTitleText": "个人信息"

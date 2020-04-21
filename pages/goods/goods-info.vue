@@ -14,7 +14,7 @@
 					<text class="text-red text-bold text-lg text-price">{{info.goods_price}}</text>
 					<text class="text-gray text-df text-price margin-left-sm" style="text-decoration: line-through;">{{info.goods_origin_price}}</text>
 					<view v-if="this.info.goods_tags" class="margin-left-sm">
-						<text v-for="(item, index) of info.goods_tags" :key="index" class="cu-tag radius sm" :class="index % 2 === 0 ? 'bg-cyan' : 'bg-yellow'">
+						<text v-for="(item, index) of info.goods_tags" :key="index" class="cu-tag radius sm" :class="index % 2 === 0 ? 'line-cyan' : 'line-yellow'">
 							{{item}}
 						</text>
 					</view>
