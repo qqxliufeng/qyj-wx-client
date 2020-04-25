@@ -14,7 +14,11 @@ Vue.prototype.$events = {
 	REFRESH_LOST: 'refreshLost',
 	REFRESH_QUESTION: 'refreshQuestion',
 	REFRESH_GOODS: 'refreshGoods',
-	REFRESH_BIND_COMMUNITY: 'refreshBindCommunity'
+	REFRESH_BIND_COMMUNITY: 'refreshBindCommunity',
+	PRIMARY_COMMUNITY_CHANGE: 'primaryCommunityChange'
+}
+Vue.prototype.$appConfig = {
+	name: '百居易'
 }
 
 Vue.mixin(routeParams)

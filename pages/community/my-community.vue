@@ -83,6 +83,7 @@
 						this.$userInfo.saveCommunities(res.data)
 						this.handleCommunity(res.data)
 						this.communities = res.data
+						uni.$emit(this.$events.PRIMARY_COMMUNITY_CHANGE)
 					},
 					onRequestFail: (errorCode, error) => {
 						this.$toast(error)
@@ -90,6 +91,9 @@
 				})
 			},
 			unBindCommunity (item) {
+				if (Number(item.pivot.is_primary) === 1) {
+					return
+				}
 				uni.showModal({
 					content: '是否要解绑该小区？默认小区不可解绑。',
 					success: (res) => {

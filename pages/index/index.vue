@@ -4,10 +4,10 @@
 			<block slot="left">
 				<text class="cuIcon-location location" style="margin-left: 10rpx;"></text>
 				<text style="margin-left: 10rpx;" @click="showPop">{{currentCity}}</text>
-				<text class="circle" v-if="currentCommunity"></text>
-				<text class="text-cut" v-if="currentCommunity">{{currentCommunity}}</text>
+				<!-- <text class="circle" v-if="currentCommunity"></text>
+				<text class="text-cut" v-if="currentCommunity">{{currentCommunity.name}}</text> -->
 			</block>
-			<block slot="content">居易</block>
+			<block slot="content">{{$appConfig.name}}</block>
 		</cu-custom>
 		<view class="cu-modal top-modal text-left" :style="style" :class="showModal ? 'show' : ''" @click="hidenModal">
 			<view class="cu-dialog" style="min-height: 40vh;">
@@ -17,7 +17,7 @@
 			</view>
 		</view>
 		<index-search></index-search>
-		<index-swiper></index-swiper>
+		<index-swiper :bannerList="banners"></index-swiper>
 		<index-notice></index-notice>
 		<index-type></index-type>
 		<block v-if="house">
@@ -87,8 +87,9 @@
 	import IndexType from './components/IndexType.vue'
 	import NoLoginTip from './components/NoLoginTip.vue'
 	import LoginMixin from '../../mixins/login.js'
+	import CommunityMixin from '../../mixins/community.js'
 	export default {
-		mixins: [LoginMixin],
+		mixins: [LoginMixin, CommunityMixin],
 		components: {
 			IndexSearch,
 			IndexSwiper,
@@ -99,18 +100,15 @@
 		data() {
 			return {
 				currentCity: this.$userInfo.currentCity(),
-				currentCommunity: '',
 				house: null,
 				goods: null,
+				banners: null,
 				showModal: false,
 				style: `padding-top:${this.CustomBar}px;`,
 				cities: null
 			}
 		},
 		methods: {
-			selectCommunity (e) {
-				this.currentCommunity = this.communities[e.detail.value]
-			},
 			showPop () {
 				this.showModal = true
 			},
@@ -130,9 +128,11 @@
 				this.$http({
 					url: this.$urlPath.indexInfo,
 					params: {
-						area: this.$userInfo.currentCity()
+						area: this.$userInfo.currentCity(),
+						cid: this.currentCommunity ? this.currentCommunity.id : ''
 					},
 					onRequestSuccess: (res) => {
+						this.banners = res.data.banner_list
 						this.house = res.data.house_list
 						if (this.house.length % 2 === 1) {
 							this.house.splice(this.house.lastIndexOf(), 1)
@@ -172,6 +172,9 @@
 						})
 					}
 				})
+			},
+			onPrimaryCommunityChange () {
+				this.getData()
 			}
 		},
 		onLoad() {

@@ -68,9 +68,10 @@
 	import ActivityItem from '../activity/components/activity-item.vue'
 	import LoginMixin from '../../mixins/login.js'
 	import Login from './components/login.vue'
+	import Community from '../../mixins/community.js'
 	export default {
 		name: 'Community',
-		mixins: [LoginMixin],
+		mixins: [LoginMixin, Community],
 		components: {
 			ActivityItem,
 			Login
@@ -78,7 +79,6 @@
 		data() {
 			return {
 				showTip: !this.$userInfo.isBindCommunity(),
-				currentCommunity: this.$userInfo.getPrimaryCommunity(),
 				communities: this.$userInfo.getCommunities(),
 				types: [
 					{
@@ -105,7 +105,7 @@
 						color: 'bg-gradual-orange',
 						cuIcon: 'iconlinju',
 						onClick: () => {
-							this.$push('/pages/around/shop-list')
+							this.$push('/pages/common/web-view')
 						}
 					},
 					{
