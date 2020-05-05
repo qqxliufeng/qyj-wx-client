@@ -36,8 +36,8 @@
 					</view>
 					<view class="location text-sm text-cut text-black">{{item.city}} . {{item.town}}</view>
 					<view class="address text-sm text-cut">
-						<text class="cuIcon-location text-yellow" style="margin-right: 4rpx;">{{item.address}}</text>
-						<text class="text-yellow text-sm" v-if="Number(item.pivot.is_primary) !== 1" @click="unBindCommunity(item)">解除小区</text>
+						<text class="cuIcon-location text-yellow text-cut flex-sub" style="margin-right: 4rpx;">{{item.address}}</text>
+						<text class="text-red text-sm margin-left-sm" v-if="Number(item.pivot.is_primary) !== 1" @click.stop="unBindCommunity(item)">解除小区</text>
 					</view>
 				</view>
 			</view>
