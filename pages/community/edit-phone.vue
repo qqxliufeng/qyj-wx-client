@@ -13,6 +13,7 @@
 				<view class="title text-gray">电话</view>
 				<input placeholder="如: 18888888888" v-model="info.phone" maxlength="11"></input>
 			</view>
+			<view v-if="info.reason" class="text-red margin">审核失败：{{info.reason.reason}}</view>
 			<view class="text-sm text-gray margin">信息创建于：{{info.create_time * 1000 | dateFormat}}</view>
 		</form>
 		<view class="text-center action-wrapper">

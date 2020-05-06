@@ -8,7 +8,7 @@
 				</view>
 				<view class="flex justify-between align-center margin-top-sm info-wrapper text-black">
 					<text>联系方式：{{item.phone}}</text>
-					<text class="phone" :class="item.color">{{getStatusTip(item)}}</text>
+					<text class="phone" :class="item.color" @click="editPhoneInfo(item)">{{getStatusTip(item)}}</text>
 				</view>
 				<view class="flex justify-between align-center margin-top-sm">
 					<text>{{item.create_time * 1000 | dateFormat}}</text>
@@ -94,7 +94,7 @@
 					case 2:
 						return '禁用中'
 					case 3:
-						return '审核失败'
+						return '审核失败，查看详情'
 				}
 			}
 		},
