@@ -59,7 +59,7 @@
 				})
 			},
 			editPhoneInfo (item) {
-				if (item.status === 1) {
+				if (item.status === 1 || item.status === 3) {
 					this.$push('/pages/community/edit-phone?pid=' + item.id + '&cid=' + item.community_id)
 				} else {
 					this.$toast('当前信息状态不可以编辑信息')
